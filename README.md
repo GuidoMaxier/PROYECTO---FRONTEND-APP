@@ -1,2 +1,2 @@
 # PROYECTO - UI web app
- Repotorio frontend
+ Repositorio frontend
