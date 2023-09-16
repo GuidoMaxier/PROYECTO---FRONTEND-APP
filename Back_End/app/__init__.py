@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, session
 from flask_cors import CORS
 from config import Config
 
@@ -26,7 +26,7 @@ def init_app():
 
     DatabaseConnection.set_config(app.config)
 
-    app.register_blueprint(film_bp, url_prefix = '/films')
+    # app.register_blueprint(film_bp, url_prefix = '/films')
 
     app.register_blueprint(user_bp)
 

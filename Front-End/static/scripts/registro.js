@@ -1,17 +1,15 @@
     // Código JavaScript para la página de Registro (register.js)
     document.getElementById('register-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username_r = document.getElementById('username_r').value;
-        const password_r = document.getElementById('password_r').value;
+        event.preventDefault(); 
 
         const data = {
-            'nombre': 'None', 
-            'apellido': 'None', 
-            'email': 'None', 
-            'username': username_r, 
-            'contraseña': password_r, 
-            'fecha_nacimiento': '2010-12-12',
-            'ruta_imagen_perfil':'ruta' 
+            'nombre': document.getElementById('nombre').value, 
+            'apellido': document.getElementById('apellido').value, 
+            'email': document.getElementById('email').value, 
+            'username': document.getElementById('username_r').value, 
+            'contraseña': document.getElementById('password_r').value, 
+            'fecha_nacimiento': document.getElementById('fecha_nacimiento').value,
+            'ruta_imagen_perfil':'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest-300x300.png' 
 
             }
 
@@ -20,7 +18,8 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials: 'include' // Incluir las cookies y credenciales
         })
         .then(response => response.json())
         .then(data => {

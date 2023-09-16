@@ -6,8 +6,8 @@
 
     const data = {
 
-        'username': document.getElementById('username').value,
-        'contraseña': document.getElementById('password').value
+        username: document.getElementById('username').value,
+        contraseña: document.getElementById('password').value
     }
 
     fetch('http://127.0.0.1:5000/login2', {
@@ -27,8 +27,8 @@
             // Redirect to profile page if login is successful
             return response.json()
             .then(data => {
-                alert(data.message);
-                window.location.href = "C:/Users/Guido Maxier/Documents/GitHub/PROYECTO---UI-web-app/BORRAR/profile.html";
+                // alert(data.message);
+                window.location.href = "./profile.html";
                 
             });
         } else {

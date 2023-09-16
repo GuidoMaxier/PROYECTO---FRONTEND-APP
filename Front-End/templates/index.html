@@ -14,7 +14,7 @@
                     <p class="t1">¡Bienvenido de nuevo!</p>
                     <p class="t2">¡Estamos muy entusiasmados por verte de nuevo!</p>
                     
-                    <form action="/login" method="post" id="login-form">
+                    <form method="post" id="login-form">
                         <p>CORREO ELECTRÓNICO</p>
                         <input type="text" id="username" name="usuario">
                         <p>CONTRASEÑA</p>
@@ -31,17 +31,17 @@
                 <form method="post" id="register-form">
 
                     <p>CORREO ELECTRÓNICO</p>
-                    <input type="email" name="email">
+                    <input type="email" id='email' name="email">
                     <p>NOMBRE DE USUARIO</p>
                     <input type="text" id="username_r" name="nombre_usuario">
                     <p>NOMBRE</p>
-                    <input type="text" name="nombre">
+                    <input type="text" id='nombre' name="nombre">
                     <p>APELLIDO</p>
-                    <input type="text" name="apellido">
+                    <input type="text" id='apellido'name="apellido">
                     <p>CONTRASEÑA</p>
                     <input type="password" id="password_r" name="clave">
                     <p>FECHA DE NACIMIENTO</p>
-                    <input type="date" name="fecha_nacimiento">
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
                     <button type="submit">Registrarse</button>
                     
                 </form>

@@ -56,138 +56,118 @@ class User:
 
     
     @classmethod
-    def get(cls, user):
-        """Get a film by id
+    def get(cls, user_data):
+        """Get a user by id
         Args:
-            - film (Film): Film object with the id attribute
+            - user (Film): User object with the id attribute
         Returns:
-            - Film: Film object
+            - User: User object
         """
-
+    
         query = """SELECT * FROM Discord2.usuarios WHERE id_usuario = %s"""
-        params = user.id_usuario,
+        params = (user_data.id_usuario,)
         result = DatabaseConnection.fetch_one(query, params=params)
-
-
-        print
 
         if result is not None:
             return cls(*result)
-        
-        raise FilmNotFound(user.id_usuario) #EJERCICIO N° 1
+
+        raise FilmNotFound(user_data.id_usuario)
     
-
-
+    
     @classmethod
     def get_all(cls):
-        """Get all films
+        """Get all usuarios
         Returns:
-            - list: List of Film objects
+            - list: List of User objects
         """
         query = """SELECT * FROM Discord2.usuarios"""
         results = DatabaseConnection.fetch_all(query)
 
-        films = []
+        users = []
         if results is not None:
             for result in results:
-                films.append(cls(*result))
-        return films
+                users.append(cls(*result))
+        return users
 
 
 
     @classmethod
-    def create(cls, user):
-        """Create a new film
+    def create(cls, user_data):
+        """Create a new usuario
         Args:
-            - film (Film): Film object
+            - user (User): User object
 
         Raises:
             - InvalidDataError: If input data is not valid
       
         """
 
-        # Validaciones de datos de entrada, EJERCICIO N° 2
-        # if len(film.title) < 3:
-        #     raise InvalidDataError("user_name must have at least three characters")
+        # Validar los datos aquí
+        if len(user_data.username) < 3:
+            raise InvalidDataError("El nombre de usuario debe tener al menos tres caracteres")
         
-        # if not isinstance(film.language_id, int) or not isinstance(film.rental_duration, int):
-        #     raise InvalidDataError("Invalid data types for some attributes")
-        
-        # if film.special_features is not None and (not isinstance(film.special_features, list) \
-        #         or not all(isinstance(feature, str) for feature in film.special_features) \
-        #         or not all(feature in ["Trailers", "Commentaries", "Deleted Scenes", "Behind the Scenes"]
-        #                     for feature in film.special_features)):
-        #     raise InvalidDataError("Invalid special features")
-       
-        
-        # Construir la consulta SQL
+
+        # Generar el hash de la contraseña
+        hashed_password = generate_password_hash(user_data.contraseña, method='scrypt')
+
         query = """INSERT INTO Discord2.usuarios (nombre, apellido, email, username, contraseña, fecha_nacimiento, ruta_imagen_perfil) 
         VALUES (%s, %s, %s, %s, %s, %s, %s)"""
-        
 
-        params = user.nombre, user.apellido, user.email, \
-                 user.username, generate_password_hash(user.contraseña), \
-                 user.fecha_nacimiento, user.ruta_imagen_perfil
-        
+        params = (user_data.nombre, user_data.apellido, user_data.email, user_data.username, hashed_password,
+                  user_data.fecha_nacimiento, user_data.ruta_imagen_perfil)
+
         try:
-            # Ejecutar la consulta SQL
             DatabaseConnection.execute_query(query, params=params)
         except Exception as e:
-            # Puedes manejar cualquier excepción de la base de datos aquí
-            raise InvalidDataError("Failed to create film")
-        
+            raise InvalidDataError("No se pudo crear el usuario")
 
-    # def exists(self):
-    #     # Verificar si el ID de la película existe en la base de datos
-    #     return User.query.filter_by(id_usuario=self.id_usuario).first() is not None  
-    
+
 
     @classmethod
-    def is_registered(cls, user):
-        query = """SELECT id_usuario FROM Discord2.usuarios 
-        WHERE username = %(username)s and contraseña = %(contraseña)s"""
-        params = user.__dict__
+    def is_registered(cls, user_data):
+        query = """SELECT contraseña FROM Discord2.usuarios 
+        WHERE username = %s"""
+        params = (user_data.username,)
         result = DatabaseConnection.fetch_one(query, params=params)
 
         if result is not None:
-            return True
-        return False  
+            hashed_password = result[0]  # Extraer el hash de la tupla
+            if check_password_hash(hashed_password, user_data.contraseña):
+                return True
+
+        return False
+
+     
 
 
     @classmethod
-    def update(cls, user):
-        pass
-    #     """Update a user
-    #     Args:
-    #         - film (Film): User object
-    #     """
-    #     allowed_columns = {'nombre', 'apellido', 'email', 'username', 'contraseña', 
-    #                        'fecha_nacimiento', 'ruta_imagen_perfil'}
+    def update(cls, user_data):
+        allowed_columns = ['nombre', 'apellido', 'email', 'username', 'fecha_nacimiento', 'ruta_imagen_perfil']
 
+        query_parts = []
+        params = []
 
-    #     query_parts = []
-    #     params = []
-    #     for key, value in user.__dict__.items():
-    #         if key in allowed_columns and value is not None:
-    #             if key == 'special_features':
-    #                 if len(value) == 0:
-    #                     value = None
-    #                 else:
-    #                     value = ','.join(value)
-    #             query_parts.append(f"{key} = %s")
-    #             params.append(value)
-    #     params.append(film.user_id)
+        for key, value in user_data.__dict__.items():
+            if key in allowed_columns and value is not None:
+                query_parts.append(f"{key} = %s")
+                params.append(value)
 
-    #     query = "UPDATE Discord2.usuarios SET " + ", ".join(query_parts) + " WHERE id_usuario = %s"
-    #     DatabaseConnection.execute_query(query, params=params)
+        params.append(user_data.id_usuario)
 
-    
+        if query_parts:
+            query = f"UPDATE Discord2.usuarios SET {', '.join(query_parts)} WHERE id_usuario = %s"
+            DatabaseConnection.execute_query(query, params=params)
+        else:
+            # No se proporcionaron datos válidos para actualizar
+            raise InvalidDataError("No se proporcionaron datos válidos para actualizar el usuario")
+        
+            
     @classmethod
-    def delete(cls, user):
-        """Delete a film
-        Args:
-            - film (Film): Film object with the id attribute
-        """
-        query = "DELETE FROM Discord2.usuarios WHERE id_usuario = %s"
-        params = user.id_usuario,
-        DatabaseConnection.execute_query(query, params=params)
+    def delete(cls, user_data):
+            """Delete a film
+            Args:
+                - film (Film): Film object with the id attribute
+            """
+            query = "DELETE FROM Discord2.usuarios WHERE id_usuario = %s"
+            params = user_data.id_usuario,
+            DatabaseConnection.execute_query(query, params=params)
