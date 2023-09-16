@@ -2,6 +2,9 @@ from ..database import DatabaseConnection
 from .exceptions import FilmNotFound, InvalidDataError
 
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 class User:
     """User model class"""
 
@@ -65,6 +68,9 @@ class User:
         params = user.id_usuario,
         result = DatabaseConnection.fetch_one(query, params=params)
 
+
+        print
+
         if result is not None:
             return cls(*result)
         
@@ -120,7 +126,7 @@ class User:
         
 
         params = user.nombre, user.apellido, user.email, \
-                 user.username, user.contraseña, \
+                 user.username, generate_password_hash(user.contraseña), \
                  user.fecha_nacimiento, user.ruta_imagen_perfil
         
         try:
@@ -148,8 +154,9 @@ class User:
         return False  
 
 
-    # @classmethod
-    # def update(cls, user):
+    @classmethod
+    def update(cls, user):
+        pass
     #     """Update a user
     #     Args:
     #         - film (Film): User object
@@ -182,5 +189,5 @@ class User:
             - film (Film): Film object with the id attribute
         """
         query = "DELETE FROM Discord2.usuarios WHERE id_usuario = %s"
-        params = user.uid_usuario,
+        params = user.id_usuario,
         DatabaseConnection.execute_query(query, params=params)

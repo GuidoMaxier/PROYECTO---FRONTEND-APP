@@ -28,7 +28,7 @@ def init_app():
 
     app.register_blueprint(film_bp, url_prefix = '/films')
 
-    app.register_blueprint(user_bp, url_prefix = '/user')
+    app.register_blueprint(user_bp)
 
     app.register_blueprint(errors) #Agregado
 

@@ -17,8 +17,8 @@ function getProfile() {
 
                 document.getElementById("username").innerText = data.username;
                 document.getElementById("email").innerText = data.email;
-                document.getElementById("first_name").innerText = data.first_name;
-                document.getElementById("last_name").innerText = data.last_name;
+                document.getElementById("first_name").innerText = data.nombre;
+                document.getElementById("last_name").innerText = data.apellido;
             });
         } else {
             return response.json().then(data => {
