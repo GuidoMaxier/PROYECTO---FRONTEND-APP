@@ -5,6 +5,7 @@ from .exceptions import FilmNotFound, InvalidDataError
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
+
 class User:
     """User model class"""
 
@@ -73,6 +74,25 @@ class User:
 
         raise FilmNotFound(user_data.id_usuario)
     
+
+    @classmethod
+    def obtener_datos_del_usuario(cls, user_data):
+
+        # Consulta SQL para obtener los datos del usuario
+        query = "SELECT * FROM Discord2.usuarios WHERE username = %s"
+        params = (user_data.username,)
+                
+        # Recupera los datos del usuario
+        result = DatabaseConnection.fetch_one(query, params=params)
+    
+        if result is not None:
+            return cls(*result)
+        
+        raise FilmNotFound(user_data.id_usuario) #controlar esta salida
+
+  
+
+
     
     @classmethod
     def get_all(cls):

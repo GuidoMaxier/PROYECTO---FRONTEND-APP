@@ -3,9 +3,10 @@ from flask_cors import CORS
 from config import Config
 
 
+
 from .routes.film_bp import film_bp
 
-from .routes.user_bp import user_bp
+from .routes.user_bp import user_bp #profile_bp, auth_bp
 
 from .database import DatabaseConnection
 
@@ -24,6 +25,7 @@ def init_app():
         Config
     )
 
+
     DatabaseConnection.set_config(app.config)
 
     # app.register_blueprint(film_bp, url_prefix = '/films')
@@ -31,6 +33,10 @@ def init_app():
     app.register_blueprint(user_bp)
 
     app.register_blueprint(errors) #Agregado
+
+    # Registra los Blueprints con las rutas correspondientes
+    # app.register_blueprint(auth_bp)
+    # app.register_blueprint(profile_bp)
 
 
 

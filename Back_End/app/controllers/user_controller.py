@@ -1,7 +1,7 @@
 
 from ..models.user_model import User
 
-from flask import Flask, request, session, make_response
+from flask import Flask, request, session, jsonify 
 
 from decimal import Decimal
 
@@ -10,6 +10,9 @@ from ..routes.error_handlers import handle_film_not_found
 
 
 from flask_cors import cross_origin 
+
+from flask_session import Session
+
 
 
 
@@ -42,6 +45,17 @@ class UserController:
         data = request.json
         # TODO: Validate data
 
+        # Verificar si ya existe un usuario con el mismo correo electrónico
+        existing_user_email = User.query.filter_by(email=data['email']).first()
+        if existing_user_email:
+            return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
+
+        # Verificar si ya existe un usuario con el mismo nombre de usuario
+        existing_user_username = User.query.filter_by(username=data['username']).first()
+        if existing_user_username:
+            return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
+
+
         user = User(**data)
         User.create(user)
         return {'message': 'Creacion de Usuario Exitosa'}, 201
@@ -65,10 +79,10 @@ class UserController:
     
     @classmethod
     def delete(cls, id_usuario):
-        """Delete a film"""
+        """Delete a USER"""
         user = User(id_usuario=id_usuario)
 
-        # TODO: Validate film exists
+        # TODO: Validate user exists
         User.delete(user)
         return {'message': 'Film deleted successfully'}, 204
     
@@ -77,38 +91,32 @@ class UserController:
 
     @classmethod
     def login(cls):
+
         data = request.json
         user = User(
-            username = data.get('username'),
-            contraseña = data.get('contraseña')
+            username=data.get('username'),
+            contraseña=data.get('contraseña')
         )
 
+
         if User.is_registered(user):
-            session['username'] = data.get('username')
+            result = User.obtener_datos_del_usuario(user)
 
-            # Si el inicio de sesión es exitoso, establece la cookie
-            response = make_response('Inicio de sesión exitoso')
-            
+            if result is not None:
 
-            response.set_cookie('username', data.get('username'))
+                return result.serialize(), 200
 
-            print(response)
+            else:
+                return {"message": "Usuario o contraseña incorrectos....."}, 401 
 
-            # Devuelve la respuesta con la cookie establecida
-            return response, 200
-        
-        # if User.is_registered(user):
-        #     session['username'] = data.get('username')
-
-        #     return {"message": "Sesion iniciada"}, 200
         else:
             return {"message": "Usuario o contraseña incorrectos"}, 401
-    
+        
 
     @classmethod
     def show_profile(cls):
 
-        user_nombre = session.get('username')
+        user_nombre = session.get('user')
 
         if user_nombre is None:
                 return {"message": "Usuario no encontrado user_nombre"}, 404
@@ -119,18 +127,16 @@ class UserController:
             return {"message": "Usuario no encontrado"}, 404
         else:
             return user.serialize(), 200
-    
-
         
+  
     @classmethod
     def logout(cls):
         session.pop('username', None)
         return {"message": "Sesion cerrada"}, 200
     
 
-    @classmethod
-    def after_request(response):
-        response.headers.add('Access-Control-Allow-Origin', '*')  # Cambia la URL según tu configuración
-        response.headers.add('Access-Control-Allow-Credentials', 'true')
-        return response
+
+
+
+
     

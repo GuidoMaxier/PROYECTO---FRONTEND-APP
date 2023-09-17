@@ -11,8 +11,8 @@ class Config:
     DATABASE_PASSWORD = config['DATABASE_PASSWORD']
     DATABASE_HOST = config['DATABASE_HOST']
     DATABASE_PORT = config['DATABASE_PORT']
-    SESSION_TYPE = 'filesystem'
-    PERMANENT_SESSION_LIFETIME = 7200
+    SESSION_TYPE = 'filesystem'  # Puedes cambiar esto según tus necesidades
+
 
     TEMPLATE_FOLDER = "templates/"
     STATIC_FOLDER = "static_folder/"
