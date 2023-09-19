@@ -11,7 +11,7 @@ from ..routes.error_handlers import handle_film_not_found
 
 from flask_cors import cross_origin 
 
-from flask_session import Session
+#from flask_session import Session
 
 
 
