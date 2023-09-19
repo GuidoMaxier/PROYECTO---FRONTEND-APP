@@ -31,7 +31,7 @@
           });
       } else {
           return response.json().then(data => {
-              alert(data.message);
+              alert(data.message + "\n Te invitamos a crear una cuenta de usuario");
               document.getElementById("message").innerHTML = data.message;
              
           });

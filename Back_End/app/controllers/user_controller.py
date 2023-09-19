@@ -43,20 +43,22 @@ class UserController:
     def create(cls):
         """Create a new usuario"""
         data = request.json
+        user = User(**data)
+
         # TODO: Validate data
 
+
+        # Verificar si ya existe un usuario con el mismo nombre de usuario
+        if User.check_username(user.username):
+            return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
+            
+
         # Verificar si ya existe un usuario con el mismo correo electrónico
-        # existing_user_email = User.query.filter_by(email=data['email']).first()
-        # if existing_user_email:
-        #     return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
-
-        # # Verificar si ya existe un usuario con el mismo nombre de usuario
-        # existing_user_username = User.query.filter_by(username=data['username']).first()
-        # if existing_user_username:
-        #     return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
+        if User.check_email(user.email):
+            return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
+            
 
 
-        user = User(**data)
         User.create(user)
         return {'message': 'Creacion de Usuario Exitosa'}, 201
 
@@ -134,7 +136,7 @@ class UserController:
         session.pop('username', None)
         return {"message": "Sesion cerrada"}, 200
     
-
+ 
 
 
 

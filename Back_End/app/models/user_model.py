@@ -184,10 +184,29 @@ class User:
             
     @classmethod
     def delete(cls, user_data):
-            """Delete a film
+            """Delete a user
             Args:
-                - film (Film): Film object with the id attribute
+                - user (User): User object with the id attribute
             """
             query = "DELETE FROM Discord2.usuarios WHERE id_usuario = %s"
             params = user_data.id_usuario,
             DatabaseConnection.execute_query(query, params=params)
+
+
+    @classmethod
+    def check_username(cls, username):
+        """Cheamos diponibilidad del usermane"""
+        query = "SELECT * FROM Discord2.usuarios WHERE username=%s"
+        params = (username,)
+        result = DatabaseConnection.fetch_one(query, params=params)
+        
+        return result
+    
+
+    @classmethod
+    def check_email(cls, email):
+        """Cheamos diponibilidad del email"""
+        query = "SELECT * FROM Discord2.usuarios WHERE email=%s"
+        params = (email,)
+        result = DatabaseConnection.fetch_one(query, params=params)
+        return result
