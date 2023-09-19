@@ -46,14 +46,14 @@ class UserController:
         # TODO: Validate data
 
         # Verificar si ya existe un usuario con el mismo correo electrónico
-        existing_user_email = User.query.filter_by(email=data['email']).first()
-        if existing_user_email:
-            return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
+        # existing_user_email = User.query.filter_by(email=data['email']).first()
+        # if existing_user_email:
+        #     return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
 
-        # Verificar si ya existe un usuario con el mismo nombre de usuario
-        existing_user_username = User.query.filter_by(username=data['username']).first()
-        if existing_user_username:
-            return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
+        # # Verificar si ya existe un usuario con el mismo nombre de usuario
+        # existing_user_username = User.query.filter_by(username=data['username']).first()
+        # if existing_user_username:
+        #     return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
 
 
         user = User(**data)
