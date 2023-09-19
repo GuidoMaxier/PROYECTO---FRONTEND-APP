@@ -82,11 +82,15 @@ class UserController:
     @classmethod
     def delete(cls, id_usuario):
         """Delete a USER"""
+
+        print("ID-usuario: ", id_usuario)
         user = User(id_usuario=id_usuario)
 
         # TODO: Validate user exists
+
+
         User.delete(user)
-        return {'message': 'Film deleted successfully'}, 204
+        return {'message': 'Usuario deleted successfully'}, 204
     
 
     

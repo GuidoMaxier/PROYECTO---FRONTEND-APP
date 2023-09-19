@@ -15,9 +15,6 @@ window.addEventListener('load', function () {
 // Llamar a la función para logout el usuario cuando se hace clic en el botón
 document.getElementById("logout").addEventListener("click", logout);
 
-// Llamar a la función para eliminar el usuario cuando se hace clic en el botón
-document.getElementById('Eliminar-usuario').addEventListener('click', eliminarUsuario);
-
 
 
 
@@ -62,30 +59,39 @@ function logout() {
 }
 
 
+
 // Función para eliminar el usuario
 function eliminarUsuario() {
-    // Hacer una solicitud DELETE al backend
-    fetch(`http://127.0.0.1:5000/user/${userData.id_usuario}`, {
-      method: 'DELETE',
+    // Obtener el ID del usuario desde localStorage
+    const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+
+    // Hacer una solicitud DELETE al backend con la URL correcta
+    fetch(`http://127.0.0.1:5000/${idUsuario}`, {
+        method: 'DELETE',
     })
-      .then(response => {
-        if (response.status === 200) {
-          // Usuario eliminado exitosamente, redireccionar a index.html
-          window.location.href = 'index.html';
-        } else {
-          // Handle errores aquí
-          console.error('Error al eliminar el usuario');
-        }
-      })
-      .catch(error => {
-        console.error('Error al comunicarse con el backend', error);
-      });
-  }
+        .then(response => {
+            if (response.status === 200) {
+                // Usuario eliminado exitosamente, redireccionar a index.html
+                logout()
+                //window.location.href = './index.html';
+            } else {
+                // Handle errores aquí
+                console.error('Error al eliminar el usuario');
+            }
+        })
+        .catch(error => {
+            console.error('Error al comunicarse con el backend', error);
+        });
+}
   
   
+// Llamar a la función para eliminar el usuario cuando se hace clic en el botón
+document.getElementById('Eliminar-usuario').addEventListener('click', eliminarUsuario);
 
-
-
+function funciono() {
+   // alert("funciono");
+    //alert("hola: ");
+}
 
 
 

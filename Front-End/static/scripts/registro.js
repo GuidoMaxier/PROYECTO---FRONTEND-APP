@@ -51,8 +51,8 @@
         // });
         .then(response => {
             if (response.status === 201) {
-                // Registro exitoso (debemos redireccionar al chat)
-                alert(data.message);
+                // Registro exitoso (debemos redireccionar al login)
+                alert('Debemos redireccionar al login');
                 return response.json();
             } else if (response.status === 400) {
                 // Error de validación (nombre de usuario o email ya existen)
