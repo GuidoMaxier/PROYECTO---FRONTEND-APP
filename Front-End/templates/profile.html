@@ -21,6 +21,7 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding-top: 1px;
         }
 
         h1 {
@@ -76,7 +77,8 @@
             display: flexbox;
             border: 3px solid rgb(236, 203, 13);
         }
-                /* Estilos para la ventana modal */
+
+        /* Estilos para la ventana modal */
         .modal {
         display: none;
         position: fixed;
@@ -91,7 +93,6 @@
         .modal-content {
         background-color: #42464d;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        /* background-color: white; */
         border-radius: 10px;
         position: absolute;
         top: 50%;
@@ -99,20 +100,29 @@
         transform: translate(-50%, -50%);
         padding: 20px;
         text-align: center;
+        padding-top: 1px;
         }
 
         .close {
+        background-color: #c50b0b;  
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+        /* border-radius: 3px; */
+        padding: 2px;  
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 0px;
+        right: 0px;
         font-size: 24px;
         cursor: pointer;
+        border-bottom-left-radius: 7px;
+        border-top-right-radius: 5px;
+        padding-bottom: 0px;
         }
 
         .image-container {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
+        margin-bottom: 10px;
         }
         
         .image-container img {
@@ -121,7 +131,24 @@
         height: 70px;
         border-radius: 50%;
         border: 3px solid rgb(17, 17, 17);
+        margin: 4px;
+
         }
+
+        #avatarButton{
+            margin-bottom: 15px;
+        }
+
+        .modal-content h3 {
+            background-color: #7289da;
+            color: #ffffff;
+            padding: 10px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 
@@ -136,7 +163,7 @@
             <!-- <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda"> -->
 
 
-            <button type="button" id="avatarButton">Cambiar Avatar</button>
+            <!-- <button type="button" id="avatarButton">Cambiar Avatar</button> -->
 
 
              <!-- Cuadro de diálogo oculto -->
@@ -144,11 +171,13 @@
             <div id="modal" class="modal">
               <div class="modal-content">
                 <span class="close" id="closeButton">&times;</span>
-                <h2>Selecciona un avatar</h2>
+                <h3>Selecciona un avatar</h3>
                 <div class="image-container">
                   <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
                   <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
                   <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+                  <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+
                 </div>
                 <button type="button" id="guardarButton">Guardar</button>
               </div>

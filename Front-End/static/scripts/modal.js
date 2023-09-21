@@ -1,5 +1,5 @@
 // Función para abrir la ventana modal
-document.getElementById('avatarButton').addEventListener('click', function () {
+document.getElementById('imagen_perfil_preview').addEventListener('click', function () {
     document.getElementById('modal').style.display = 'block';
   });
   
