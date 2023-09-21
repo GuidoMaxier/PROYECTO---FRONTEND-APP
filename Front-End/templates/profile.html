@@ -73,6 +73,54 @@
             border-radius: 50%;
             object-fit: cover; /* Ajusta la forma de la imagen para que se ajuste al círculo */
             overflow: hidden; /* Oculta cualquier contenido que se salga del círculo */
+            display: flexbox;
+            border: 3px solid rgb(236, 203, 13);
+        }
+                /* Estilos para la ventana modal */
+        .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        }
+
+        .modal-content {
+        background-color: #42464d;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        /* background-color: white; */
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        text-align: center;
+        }
+
+        .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        }
+
+        .image-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        }
+        
+        .image-container img {
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid rgb(17, 17, 17);
         }
     </style>
 </head>
@@ -85,9 +133,32 @@
     <form id="profile-form" enctype="multipart/form-data">
 
             <!-- Elemento para mostrar la imagen de perfil -->
+            <!-- <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda"> -->
+
+
+            <button type="button" id="avatarButton">Cambiar Avatar</button>
+
+
+             <!-- Cuadro de diálogo oculto -->
+
+            <div id="modal" class="modal">
+              <div class="modal-content">
+                <span class="close" id="closeButton">&times;</span>
+                <h2>Selecciona un avatar</h2>
+                <div class="image-container">
+                  <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
+                  <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
+                  <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+                </div>
+                <button type="button" id="guardarButton">Guardar</button>
+              </div>
+            </div>
+          
             <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda">
-            <label for="ruta_imagen_perfil">Cambiar Imagen de Perfil:</label>
-            <input type="file" name="imagen_perfil">
+            
+
+            <!-- <label for="ruta_imagen_perfil">Cambiar Imagen de Perfil:</label>
+            <input type="file" name="imagen_perfil"> -->
 
             <!-- <label for="id_usuario">ID de Usuario:</label>
             <input type="text" name="id_usuario" value="123" readonly> -->
@@ -101,25 +172,28 @@
             <label for="email">Email:</label>
             <input type="email" name="email" value="johndoe@example.com">
 
-            <label for="username">Nombre de Usuario:</label>
+            <label for="username">User Name:</label>
             <input type="text" name="username" value="johnd">
 
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" name="contraseña">
+            <!-- <label for="contraseña">Contraseña:</label>
+            <input type="password" name="contraseña"> -->
 
             <!-- <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
             <input type="date" name="fecha_nacimiento" value="1990-01-01"> -->
 
            
 
-            <input type="submit" value="Guardar Cambios">
+            <input type="submit" id= "Guardar-Cambios" value="Guardar Cambios">
         </form>
     </div>
 
     <div class="container">
         <button id="Eliminar-usuario">Eliminar Cuenta</button>
     </div>
+
+
     
     <script src="../static/scripts/profile.js"></script>
+    <script src="../static/scripts/modal.js"></script>
 </body>
 </html>

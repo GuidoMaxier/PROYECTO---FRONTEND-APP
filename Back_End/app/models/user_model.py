@@ -196,7 +196,7 @@ class User:
     @classmethod
     def check_username(cls, username):
         """Cheamos diponibilidad del usermane"""
-        query = "SELECT * FROM Discord2.usuarios WHERE username=%s"
+        query = "SELECT id_usuario FROM Discord2.usuarios WHERE username=%s"
         params = (username,)
         result = DatabaseConnection.fetch_one(query, params=params)
         
@@ -206,7 +206,7 @@ class User:
     @classmethod
     def check_email(cls, email):
         """Cheamos diponibilidad del email"""
-        query = "SELECT * FROM Discord2.usuarios WHERE email=%s"
+        query = "SELECT id_usuario FROM Discord2.usuarios WHERE email=%s"
         params = (email,)
         result = DatabaseConnection.fetch_one(query, params=params)
         return result

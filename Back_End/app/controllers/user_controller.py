@@ -43,42 +43,58 @@ class UserController:
     def create(cls):
         """Create a new usuario"""
         data = request.json
-        user = User(**data)
+        
 
         # TODO: Validate data
 
 
         # Verificar si ya existe un usuario con el mismo nombre de usuario
-        if User.check_username(user.username):
+        if User.check_username(data['username']):
             return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
             
 
         # Verificar si ya existe un usuario con el mismo correo electrónico
-        if User.check_email(user.email):
+        if User.check_email(data['email']):
             return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
             
 
-
+        user = User(**data)
         User.create(user)
         return {'message': 'Creacion de Usuario Exitosa'}, 201
 
 
     @classmethod
     def update(cls, id_usuario):
-        """Update a film"""
+        """Update a USER"""
+
+        print(request.json)
+        
         data = request.json
 
         # TODO: Validate data
-
-        
         data['id_usuario'] = id_usuario
+
+        UsernameExite = User.check_username(data['username'])
+        EmailExiste = User.check_email(data['email'])
+
+        if UsernameExite is not None:
+            if UsernameExite[0] != id_usuario:
+                return jsonify({'message': 'El nombre de usuario ya está en uso'}), 400
+
+        if EmailExiste is not None:
+              if EmailExiste[0] != id_usuario:
+                  return jsonify({'message': 'El correo electrónico ya está registrado'}), 400
+                  
+
 
         user = User(**data)
 
         # TODO: Validate film exists
         User.update(user)
-        return {'message': 'Film updated successfully'}, 200
+        return {'message': 'USER updated successfully'}, 200
     
+
+
     @classmethod
     def delete(cls, id_usuario):
         """Delete a USER"""
