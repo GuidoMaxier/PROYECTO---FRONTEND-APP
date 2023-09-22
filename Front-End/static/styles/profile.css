@@ -1,0 +1,237 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+
+        .container {
+            max-width: 350px;
+            margin: 0 auto;
+            background-color: #42464d;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding-top: 1px;
+        }
+
+        h1 {
+            background-color: #7289da;
+            color: #ffffff;
+            /* padding: 10px; */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="file"] {
+
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #7289da;
+            border-radius: 3px;
+            background-color: #36393f;
+            color: #ffffff;
+        }
+
+        input[type="submit"] {
+            background-color: #7289da;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #677bc4;
+        }
+
+        .imagen-redonda {
+            width: 30%; /* Ajusta el tamaño deseado */
+            height: 30%; /* Ajusta el tamaño deseado */
+            border-radius: 50%;
+            object-fit: cover; /* Ajusta la forma de la imagen para que se ajuste al círculo */
+            overflow: hidden; /* Oculta cualquier contenido que se salga del círculo */
+            display: flexbox;
+            border: 3px solid rgb(236, 203, 13);
+        }
+
+        /* Estilos para la ventana modal */
+        .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        }
+
+        .modal-content {
+        background-color: #42464d;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        text-align: center;
+        padding-top: 1px;
+        }
+
+        .close {
+        background-color: #c50b0b;
+        padding: 2px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 24px;
+        cursor: pointer;
+        border-bottom-left-radius: 7px;
+        border-top-right-radius: 5px;
+        padding-bottom: 0px;
+        }
+
+        .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centra las filas de imágenes horizontalmente */
+        margin-top: 20px;
+        margin-bottom: 10px;
+        flex-direction: column;
+        }
+
+        .image-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 10px; /* Ajusta el margen inferior entre las filas */
+        }
+
+        .image-container img {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid rgb(17, 17, 17);
+        margin: 4px;
+        }
+
+        #avatarButton {
+        margin-bottom: 15px;
+        }
+
+        .modal-content h3 {
+        background-color: #7289da;
+        color: #ffffff;
+        padding: 10px;
+        margin: 0;
+        text-align: center;
+        margin-bottom: 20px;
+        }
+
+        .boton-red {
+            background-color: #c50b0b;
+            color: rgb(255, 255, 255);
+            }
+
+
+
+/* cambio de clave */
+/* Estilo para la ventana modal */
+.modal-clave {
+    display: none; /* Oculta la ventana modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    z-index: 1; /* Asegura que la ventana modal esté por encima de otros elementos */
+}
+
+/* Estilo para el contenido de la ventana modal */
+.modal-content-clave {
+    border-radius: 10px;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #42464d;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    
+}
+
+/* Estilo para el botón de cierre (X) en la esquina superior derecha */
+.close-clave {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilo para el formulario dentro de la ventana modal */
+.cambiar-clave-form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para las etiquetas de los campos del formulario */
+cambiar-clave-form label{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los campos de entrada del formulario */
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Estilo para el botón "Guardar Contraseña" */
+#guardarClave {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Estilo para el botón "Guardar Contraseña" al pasar el mouse sobre él */
+#guardarClave:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el fondo del botón de cierre (X) al pasar el mouse sobre él */
+.close-clave:hover {
+    color: red;
+}

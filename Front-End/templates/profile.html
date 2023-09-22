@@ -3,194 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #36393f;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            display: block;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #42464d;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding-top: 1px;
-        }
-
-        h1 {
-            background-color: #7289da;
-            color: #ffffff;
-            /* padding: 10px; */
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="date"],
-        input[type="file"] {
-
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #7289da;
-            border-radius: 3px;
-            background-color: #36393f;
-            color: #ffffff;
-        }
-
-        input[type="submit"] {
-            background-color: #7289da;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #677bc4;
-        }
-
-        .imagen-redonda {
-            width: 35%; /* Ajusta el tamaño deseado */
-            height: 35%; /* Ajusta el tamaño deseado */
-            border-radius: 50%;
-            object-fit: cover; /* Ajusta la forma de la imagen para que se ajuste al círculo */
-            overflow: hidden; /* Oculta cualquier contenido que se salga del círculo */
-            display: flexbox;
-            border: 3px solid rgb(236, 203, 13);
-        }
-
-        /* Estilos para la ventana modal */
-        .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-        }
-
-        .modal-content {
-        background-color: #42464d;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        text-align: center;
-        padding-top: 1px;
-        }
-
-        .close {
-        background-color: #c50b0b;  
-        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
-        /* border-radius: 3px; */
-        padding: 2px;  
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        font-size: 24px;
-        cursor: pointer;
-        border-bottom-left-radius: 7px;
-        border-top-right-radius: 5px;
-        padding-bottom: 0px;
-        }
-
-        .image-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        }
-        
-        .image-container img {
-        cursor: pointer;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        border: 3px solid rgb(17, 17, 17);
-        margin: 4px;
-
-        }
-
-        #avatarButton{
-            margin-bottom: 15px;
-        }
-
-        .modal-content h3 {
-            background-color: #7289da;
-            color: #ffffff;
-            padding: 10px;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-    </style>
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="../static/styles/profile.css">
 </head>
 
 <body>
+    <div class="container">
+        <h1>Perfil de Usuario <button id="logout">Logout</button></h1>
 
-            <div class="container">
-            <h1>Perfil de Usuario <button id="logout">Logout</button></h1>
-
-    <form id="profile-form" enctype="multipart/form-data">
-
-            <!-- Elemento para mostrar la imagen de perfil -->
-            <!-- <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda"> -->
-
-
-            <!-- <button type="button" id="avatarButton">Cambiar Avatar</button> -->
-
-
-             <!-- Cuadro de diálogo oculto -->
-
+        <form id="profile-form" enctype="multipart/form-data">
+            <!-- Cuadro de diálogo oculto -->
             <div id="modal" class="modal">
-              <div class="modal-content">
-                <span class="close" id="closeButton">&times;</span>
-                <h3>Selecciona un avatar</h3>
-                <div class="image-container">
-                  <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
-                  <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
-                  <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
-                  <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
-
+                <div class="modal-content">
+                    <span class="close" id="closeButton">&times;</span>
+                    <h3>Selecciona un avatar</h3>
+                    <div class="image-container">
+                        <div class="image-row">
+                            <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
+                            <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
+                            <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+                            <img src="../static/assets/avatars/soldier.png" alt="Soldier" onclick="seleccionarAvatar('../static/assets/avatars/soldier.png')" />
+                        </div>
+                        <div class="image-row">
+                            <img src="../static/assets/avatars/pilot.png" alt="Pilot" onclick="seleccionarAvatar('../static/assets/avatars/pilot.png')" />
+                            <img src="../static/assets/avatars/robot.png" alt="Robot" onclick="seleccionarAvatar('../static/assets/avatars/robot.png')" />
+                            <!-- Agrega las imágenes restantes aquí -->
+                        </div>
+                    </div>
+                    <button type="button" id="guardarButton" class="boton-red">seleccionar Avatar</button>
                 </div>
-                <button type="button" id="guardarButton">Guardar</button>
-              </div>
             </div>
-          
-            <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda">
-            
 
-            <!-- <label for="ruta_imagen_perfil">Cambiar Imagen de Perfil:</label>
-            <input type="file" name="imagen_perfil"> -->
-
-            <!-- <label for="id_usuario">ID de Usuario:</label>
-            <input type="text" name="id_usuario" value="123" readonly> -->
+            <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda" name="ruta_imagen_perfil" >
 
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" value="John">
@@ -203,25 +47,36 @@
 
             <label for="username">User Name:</label>
             <input type="text" name="username" value="johnd">
+            
+            <!-- Campos adicionales (contraseña, fecha de nacimiento, etc.) -->
 
-            <!-- <label for="contraseña">Contraseña:</label>
-            <input type="password" name="contraseña"> -->
-
-            <!-- <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" name="fecha_nacimiento" value="1990-01-01"> -->
-
-           
-
-            <input type="submit" id= "Guardar-Cambios" value="Guardar Cambios">
+            <button type="button" id="Guardar-Cambios">Guardar Cambios</button>
+            <button type="button" id="Cambiar-Clave">Cambiar Contraseña</button>
         </form>
     </div>
 
     <div class="container">
         <button id="Eliminar-usuario">Eliminar Cuenta</button>
+        
     </div>
 
-
+    <div id="modal-clave" class="modal-clave" style="display: none;">
+        <div class="modal-content-clave">
+            <span class="close-clave" id="closeClave">&times;</span>
+            <h3>Cambiar Contraseña</h3>
+            <form id="cambiar-clave-form">
+                <label for="nuevaclave">Nueva Contraseña:</label>
+                <input type="password" id="nuevaclave" name="nuevaclave" required>
     
+                <label for="confirmacion">Confirmar Contraseña:</label>
+                <input type="password" id="confirmacion" name="confirmacion" required>
+    
+                <button type="button" id="guardarClave">Guardar Contraseña</button>
+            </form>
+        </div>
+    </div>
+    
+
     <script src="../static/scripts/profile.js"></script>
     <script src="../static/scripts/modal.js"></script>
 </body>

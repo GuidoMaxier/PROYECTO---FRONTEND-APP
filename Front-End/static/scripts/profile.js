@@ -4,7 +4,11 @@ window.addEventListener('load', function () {
     
     if (storedUserData) {
         const userData = JSON.parse(storedUserData);
-        displayProfileData(userData);
+        //displayProfileData(userData);
+        const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+
+        obtenerDatosUsuarioDesdeAPI(idUsuario)
+
     } else {
         // Si no se encuentra userData en localStorage, redirigir al usuario a la página de inicio de sesión
        // alert("Esta siendo redireccionado...");
@@ -12,22 +16,43 @@ window.addEventListener('load', function () {
     }
 });
 
+///////////////////////// READ ////////////////////////////
+// Función para obtener los datos del usuario desde la API y actualizar el formulario
+function obtenerDatosUsuarioDesdeAPI(idUsuario) {
+    const url = `http://127.0.0.1:5000/${idUsuario}`;
+    
+    return fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos del usuario desde la API');
+        }
+        
+        return response.json();
+      })
+      .then((data) => {
+        // Actualiza los campos del formulario con los nuevos datos
+        displayProfileData(data);
+        // document.querySelector('input[name="nombre"]').value = data.nombre;
+        // document.querySelector('input[name="apellido"]').value = data.apellido;
+        // document.querySelector('input[name="email"]').value = data.email;
+        // document.querySelector('input[name="username"]').value = data.username;
+      });
+}
 
-
-function displayProfileData(userData) {
+///////////////////////// READ ////////////////////////////
+function displayProfileData(Data) {
     // Asignar los datos del usuario a los campos de entrada
-    // document.getElementsByName("id_usuario")[0].value = userData.id_usuario;
-    document.getElementsByName("nombre")[0].value = userData.nombre;
-    document.getElementsByName("apellido")[0].value = userData.apellido;
-    document.getElementsByName("email")[0].value = userData.email;
-    document.getElementsByName("username")[0].value = userData.username;
+    //document.getElementsByName("id_usuario")[0].value = Data.id_usuario;
+    document.getElementsByName("nombre")[0].value = Data.nombre;
+    document.getElementsByName("apellido")[0].value = Data.apellido;
+    document.getElementsByName("email")[0].value = Data.email;
+    document.getElementsByName("username")[0].value = Data.username;
 
     // Asignar la ruta de la imagen de perfil al elemento de vista previa
-    document.getElementById("imagen_perfil_preview").src = userData.ruta_imagen_perfil;
+    document.getElementById("imagen_perfil_preview").src = Data.ruta_imagen_perfil;
 
     //document.getElementsByName("contraseña")[0].value = userData.contraseña;
     // document.getElementsByName("fecha_nacimiento")[0].value = userData.fecha_nacimiento;
-  
     
 }
 
@@ -36,8 +61,7 @@ function displayProfileData(userData) {
 // Llamar a la función para logout el usuario cuando se hace clic en el botón
 document.getElementById("logout").addEventListener("click", logout);
 function logout() {
-    
-    
+       
     const url = "http://127.0.0.1:5000/logout";
 
     fetch(url, {
@@ -64,171 +88,163 @@ function logout() {
 
 
 
-// Función para eliminar el usuario
-function eliminarUsuario() {
-    // Obtener el ID del usuario desde localStorage
-    const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+/////////////////////////// DELETE ////////////////////////////////
 
-    // Hacer una solicitud DELETE al backend con la URL correcta
-    fetch(`http://127.0.0.1:5000/${idUsuario}`, {
-        method: 'DELETE',
-    })
-        .then(response => {
-            if (response.status === 200) {
-                // Usuario eliminado exitosamente, redireccionar a index.html
-                logout()
-                //window.location.href = './index.html';
-            } else {
-                // Handle errores aquí
-                console.error('Error al eliminar el usuario');
-            }
-        })
-        .catch(error => {
-            console.error('Error al comunicarse con el backend', error);
-        });
-}
-  
-  
 // Llamar a la función para eliminar el usuario cuando se hace clic en el botón
 document.getElementById('Eliminar-usuario').addEventListener('click', eliminarUsuario);
 
-function funciono() {
-   // alert("funciono");
-    //alert("hola: ");
+// Función para eliminar el usuario
+function eliminarUsuario() {
+    // Mostrar un cuadro de diálogo de confirmación
+    const confirmacion = window.confirm('¿Estás seguro de que quieres eliminar este usuario? Esta acción no se puede deshacer.');
+
+    // Si el usuario confirmó la eliminación
+    if (confirmacion) {
+        // Obtener el ID del usuario desde localStorage
+        const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+
+        // Hacer una solicitud DELETE al backend con la URL correcta
+        fetch(`http://127.0.0.1:5000/${idUsuario}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    // Usuario eliminado exitosamente, redireccionar a index.html o realizar cualquier otra acción necesaria
+                    localStorage.removeItem('userData');
+                    window.location.href = "./index.html";
+                } else {
+                    // Handle errores aquí
+                    console.error('Error al eliminar el usuario');
+                }
+            })
+            .catch(error => {
+                console.error('Error al comunicarse con el backend', error);
+            });
+    }
 }
 
-////////////////////// UPDATE //////////////////////
+  
+ 
 
-document.getElementById('Guardar-Cambios').addEventListener('submit', (event) => {
-        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-      
-        const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
-        // Reemplaza con el ID del usuario que deseas actualizar
-        const formData = new FormData(event.target); // Obtiene los datos del formulario
-      
-        // Convierte los datos del formulario a un objeto JavaScript
-        const formDataObject = {
-            "nombre": self.nombre,
-            "apellido": self.apellido,
-            "email": self.email,
-            "username": self.username,
-            "ruta_imagen_perfil": self.ruta_imagen_perfil
-        };
+////////////////////// UPDATE DATOS PERFIL //////////////////////
+document.getElementById('Guardar-Cambios').addEventListener('click', (event) => {
+    event.preventDefault();
 
-        // formData.forEach((value, key) => {
-        //   formDataObject[key] = value;  
-        // } );
-      
-        // Realiza la solicitud de actualización utilizando fetch
-        fetch(`http://127.0.0.1:5000/${idUsuario}`, {
-          method: 'PUT', // Método HTTP PUT para la actualización
-          headers: {
-            'Content-Type': 'application/json', // Indica que estás enviando datos en formato JSON
-          },
-          body: JSON.stringify(formDataObject), // Convierte los datos a formato JSON
-        })
-          .then((response) => {
+    const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+    const formData = new FormData(); // Crea un nuevo objeto FormData
+
+    // Obtén los valores de nombre, apellido, email y username del formulario
+    const nombre = document.querySelector('input[name="nombre"]').value;
+    const apellido = document.querySelector('input[name="apellido"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const username = document.querySelector('input[name="username"]').value;
+    const rutaImagen = document.getElementById("imagen_perfil_preview").getAttribute("src");
+
+    // Agrega los valores al objeto FormData
+    formData.append('nombre', nombre);
+    formData.append('apellido', apellido);
+    formData.append('email', email);
+    formData.append('username', username);
+    formData.append('ruta_imagen_perfil', rutaImagen);
+
+    // Realiza la solicitud de actualización utilizando fetch
+    fetch(`http://127.0.0.1:5000/${idUsuario}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)), // Convierte FormData a objeto y luego a JSON
+    })
+        .then((response) => {
             if (!response.ok) {
-              throw new Error('Error al actualizar el usuario');
+                throw new Error('Error al actualizar el usuario');
             }
-            
-            return response.json(); // Si la respuesta es exitosa, lee la respuesta JSON
-          })
-          .then((data) => {
+
+            // Actualiza los campos del formulario con los nuevos datos
             obtenerDatosUsuarioDesdeAPI(idUsuario);
             alert("Usuario actualizado con éxito");
-            console.log('Usuario actualizado con éxito', data);
-            // Puedes realizar acciones adicionales aquí, como redirigir al usuario a otra página
-          })
-          .catch((error) => {
+            console.log('Usuario actualizado con éxito');
+        })
+        .catch((error) => {
             console.error('Error al actualizar el usuario', error);
             // Puedes mostrar un mensaje de error al usuario u otras acciones en caso de error
-          });
-      });
+        });
+});
 
 
+////////////////////// UPDATE CLAVE //////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-// Función para obtener los datos del usuario desde la API
-function obtenerDatosUsuarioDesdeAPI(idUsuario) {
-    const url = `http://127.0.0.1:5000/${idUsuario}`;
+function cambiarClave(nuevaClave, confirmacion) {
+    const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
     
-    return fetch(url)
-      .then((response) => {
+    if (nuevaClave !== confirmacion) {
+        // Las contraseñas no coinciden, puedes mostrar un mensaje de error aquí
+        alert("La nueva contraseña y la confirmación no coinciden. Por favor, inténtalo de nuevo.");
+        return;
+    }
+
+    // Define los datos que se enviarán al servidor
+    const datos = {
+        id_usuario: idUsuario,
+        nuevaclave: nuevaClave,
+    };
+
+    // Realiza la solicitud de cambio de contraseña utilizando fetch
+    fetch(`http://127.0.0.1:5000/cambiarclave`, {
+        method: 'POST', // Puedes utilizar POST u otro método según la configuración de tu servidor
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datos), // Convierte los datos a formato JSON
+    })
+    .then((response) => {
         if (!response.ok) {
-          throw new Error('Error al obtener los datos del usuario desde la API');
+            throw new Error('Error al cambiar la contraseña');
         }
-        localStorage.removeItem('userData');
-        localStorage.setItem('userData', JSON.stringify(data));
+        
         return response.json();
-      });
-  }
- 
+    })
+    .then((data) => {
+        // Contraseña cambiada exitosamente, puedes mostrar un mensaje de éxito aquí
+        alert("Contraseña cambiada exitosamente");
+        console.log('Contraseña cambiada exitosamente', data);
 
-  const idUsuario = 1; // Reemplaza con el ID del usuario que deseas obtener
-  
-//   obtenerDatosUsuarioDesdeAPI(idUsuario)
-//     .then((data) => {
-//       console.log('Datos del usuario obtenidos con éxito', data);
-      
-//       // Puedes utilizar los datos obtenidos en tu aplicación, como actualizar la página con la información del usuario.
-//       // Ejemplo: Actualizar el nombre de usuario en la página
-//       document.getElementById('username').textContent = data.username;
-//     })
-//     .catch((error) => {
-//       console.error('Error al obtener los datos del usuario', error);
-//     });
+        // Cierra la ventana modal de cambio de contraseña si es necesario
+        const modal = document.getElementById("modal-clave");
+        modal.style.display = "none";
 
-  
-  
-  
-//   // Función para abrir la ventana modal
-// document.getElementById('avatarButton').addEventListener('click', function () {
-//     document.getElementById('modal').style.display = 'block';
-//   });
-  
-//   // Función para cerrar la ventana modal
-//   document.getElementById('closeButton').addEventListener('click', function () {
-//     document.getElementById('modal').style.display = 'none';
-//   });
-  
-//   let selectedAvatar = ''; // Variable para guardar la ruta de la imagen seleccionada
-  
-//   // Función para seleccionar un avatar
-//   function seleccionarAvatar(avatarPath) {
-//     selectedAvatar = avatarPath;
-//   }
-  
-//   // Función para guardar la imagen seleccionada y cerrar la ventana modal
-//   document.getElementById('guardarButton').addEventListener('click', function () {
-//     if (selectedAvatar) {
-//       document.getElementById('imagen_perfil_preview').src = selectedAvatar;
-//       document.getElementById('modal').style.display = 'none';
-//       // Aquí puedes hacer algo con la variable selectedAvatar, como enviarla al servidor.
-//     }
-//   });
+        // Limpia los campos de contraseña si es necesario
+        document.getElementById("nuevaclave").value = "";
+        document.getElementById("confirmacion").value = "";
+
+        // Puedes realizar otras acciones aquí, como redirigir al usuario o actualizar los datos en el frontend
+    })
+    .catch((error) => {
+        console.error('Error al cambiar la contraseña', error);
+        // Puedes mostrar un mensaje de error al usuario u otras acciones en caso de error
+    });
+}
+
+document.getElementById("guardarClave").addEventListener("click", function () {
+    const nuevaClave = document.getElementById("nuevaclave").value;
+    const confirmacion = document.getElementById("confirmacion").value;
+    
+    cambiarClave(nuevaClave, confirmacion);
+});
+
+// Botón para abrir la ventana modal de cambio de contraseña
+document.getElementById("Cambiar-Clave").addEventListener("click", function () {
+    const modal = document.getElementById("modal-clave");
+    modal.style.display = "block";
+});
+
+// Función para cerrar la ventana modal
+document.getElementById('closeClave').addEventListener('click', function () {
+    document.getElementById('modal-clave').style.display = 'none';
+  });
+
+
+
   
   
 

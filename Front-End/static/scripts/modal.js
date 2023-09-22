@@ -33,3 +33,7 @@ function seleccionarAvatar(avatarPath) {
       // Aquí puedes hacer algo con la variable selectedAvatar, como enviarla al servidor.
     }
   });
+
+
+
+  
