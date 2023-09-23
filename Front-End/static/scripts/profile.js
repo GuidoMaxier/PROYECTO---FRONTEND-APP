@@ -186,7 +186,7 @@ function cambiarClave(nuevaClave, confirmacion) {
     // Define los datos que se enviarán al servidor
     const datos = {
         id_usuario: idUsuario,
-        nuevaclave: nuevaClave,
+        contraseña: nuevaClave,
     };
 
     // Realiza la solicitud de cambio de contraseña utilizando fetch
