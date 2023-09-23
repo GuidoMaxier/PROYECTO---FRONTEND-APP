@@ -89,9 +89,7 @@ body {
     border-radius: 30px;
 }
 
-/*.pf1:hover {
-    background: #5865f2
-}*/
+
 
 .linea-blanca {
     position: absolute;
@@ -107,8 +105,6 @@ body {
     pointer-events: none;
     transition: opacity, height 0.5s;
 }
-
-
 
 
 .logo:hover .linea-blanca, .perfil1:hover .linea-blanca, .perfil2:hover .linea-blanca {  /*LINEA BLANCA al COSTADO*/
@@ -133,17 +129,10 @@ body {
 }
 
 
-
 .logo:hover .hover, .perfil1:hover .hover, .perfil2:hover .hover, .addServidor:hover .hover { /*Aparece TEXTO*/
     opacity: 1;
 }
 
-/*.linea-gris {
-    height: 2px;
-    width: 31px;
-    background: #36393f;
-    margin-right: 1px
-}*/
 
 .linea-gris {
     width: 100%;
@@ -152,14 +141,6 @@ body {
 }
 
 
-
-/*.pf4:hover {
-    background: rgba(0, 207, 69, 0.5)
-}
-
-.pf4:hover svg path{
-    color: white;
-}*/
 
 /* LEFT 2 STYLES */
 
