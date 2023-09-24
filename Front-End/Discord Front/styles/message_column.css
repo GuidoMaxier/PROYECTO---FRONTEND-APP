@@ -1,21 +1,21 @@
-.columna-mensajes {
+.message_column {
     background: #36393F;
     flex: 1;
 }
 
-.barra_superior {
+.top {
     display: flex;
     justify-content: space-between;
     padding: 13px;
     box-shadow: 0px 1px 2px rgb(24, 24, 24);
 }
 
-.barra_superior div {
+.top div {
     display: flex;
     align-items: center;
 }
 
-.buscador {
+.search {
     width: 200px;
     border-radius: 5px;
     background: #202225;
@@ -28,27 +28,27 @@
     margin-right: 10px;
 }
 
-.buscador::placeholder {
+.search ::placeholder {
     color: #9A9DA1
 }
 
-.buscador:focus{
+.search :focus{
     width: 220px;
 }
 
-.superior_iconos .holder .hover2 {
+.top_icon .holder .hover2 {
     top: 110%;
     left: -20px
 }
 
-.mensajes {
+/*.messages {
     display: grid;
     grid-template-columns: 1fr;
     padding: 25px;
     position: relative;
-}
+}*/
 
-.mensaje_inicio {
+.start_message {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,5 +57,16 @@
     left:41%;
    
 }
+
+.start_message h1{
+    color: rgb(240, 240, 240);
+}
+
+.start_message p{
+    color: #B0B2B6; 
+    font-size: 14px; 
+    margin-top: 5px;
+}
+
 
 

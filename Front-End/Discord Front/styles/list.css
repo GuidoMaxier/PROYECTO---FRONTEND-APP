@@ -8,36 +8,29 @@ body {
     height: 100%;
 }
 
-/*.left-section, .middle-section, .right-section {
-    height: 100%;
-}*/
-
-.list, .right-section {
-    height: 100%;
-}
 
 .list {
     display: flex;
 }
 
-.columna-servidores, .columna-canales{
+.server_column, .channel_column{
     display: flex;
     flex-direction: column;
 }
 
-.columna-servidores {
+.server_column {
     background: #202225;
     padding: 13px;
     padding-top: 4px;
     align-items: center;
 }
 
-.columna-servidores div {
+.server_column div {
     margin-top: 7px;
 
 }
 
-.logo, .perfil1, .perfil2, .addServidor, .boton {
+.logo, .profile1, .profile2, .addServer, .button {
     background: #36393f;
     border-radius: 30px;
     width: 48px;
@@ -51,7 +44,7 @@ body {
     
 }
 
-.perfil1, .p{
+.profile1, .p{
     border-radius: 15px; 
     background: #5865f2;
     color: #fff; 
@@ -61,7 +54,7 @@ body {
 
 
 
-.boton{
+.button{
     font-size: 25px;
     border: none;
     color: #3bd65a; 
@@ -70,28 +63,28 @@ body {
 
 
  /*CUADRADO al ACERCAR*/
-.boton:hover{
+.button:hover{
     border-radius: 15px; 
     color: white;
     background-color: #1b9c35;
     
 }
 
-.logo:hover, .perfil2:hover img, .addServidor:hover{
+.logo:hover, .profile2:hover img, .addServer:hover{
     border-radius: 15px;  /*CUADRADO al ACERCAR*/
     color: white;
     background-color: rgb(65, 65, 211);
 }
 
 
-.perfil2 img {  /*ACHICA IMAGEN*/
+.profile2 img {  /*ACHICA IMAGEN*/
     width: 100%;
     border-radius: 30px;
 }
 
 
 
-.linea-blanca {
+.white_line {
     position: absolute;
     width: 4px;
     height: 0px;
@@ -107,7 +100,7 @@ body {
 }
 
 
-.logo:hover .linea-blanca, .perfil1:hover .linea-blanca, .perfil2:hover .linea-blanca {  /*LINEA BLANCA al COSTADO*/
+.logo:hover .white_line, .profile1:hover .white_line, .profile2:hover .white_line {  /*LINEA BLANCA al COSTADO*/
     opacity: 1;
     height: 40px;
 }
@@ -129,12 +122,12 @@ body {
 }
 
 
-.logo:hover .hover, .perfil1:hover .hover, .perfil2:hover .hover, .addServidor:hover .hover { /*Aparece TEXTO*/
+.logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .addServer:hover .hover { /*Aparece TEXTO*/
     opacity: 1;
 }
 
 
-.linea-gris {
+.grey_line {
     width: 100%;
     height: 1px;
     background: rgb(87, 87, 87);
@@ -144,12 +137,12 @@ body {
 
 /* LEFT 2 STYLES */
 
-.columna-canales {
+.channel_column {
     background: #2F3136;
     position: relative
 }
 
-.nombre-servidor {
+.server_name {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,39 +156,39 @@ body {
     font-weight: bold;
 }
 
-.nombre-servidor:hover {
+.server_name:hover {
     background: #202225;
 }
 
-.canales, .canal {
+.channels, .channel {
     display: flex;
     flex-direction: column;
 }
 
-.canales {
+.channels {
     padding: 10px;
 }
 
-.canal {
+.channel {
     margin-top: 7px;
 }
 
-.nombre, .contenido, .contenido div, .contenido2, .contenido2 div {
+.name, .contents, .contents div, .contents2, .contents2 div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #96989D;    
 }
-.nombre .p1 {
+.name .p1 {
     font-size: 12px;
 }
 
-.nombre .p2 {
+.name .p2 {
     font-size: 25px;
     margin-right: 7px;
 }
 
-.contenido, .contenido2 {
+.contents, .contents2 {
     margin-top: 3px;
     background: #42464D;
     padding: 7px;
@@ -204,7 +197,7 @@ body {
 }
 
 
-p.formato{
+p.format{
     color: rgb(231, 231, 231); 
     font-weight: bold; 
     font-size: 14px; 
@@ -212,7 +205,7 @@ p.formato{
 }
 
 
-.contenido2 {
+.contents2 {
     background: transparent;
 }
 
@@ -237,7 +230,7 @@ p.formato{
     transition: opactiy 0.15s;
 }
 
-.ocultar_icono {
+.hide_icon {
     opacity: 0;
 }
 
@@ -245,24 +238,24 @@ p.formato{
     opacity: 1;
 }
 
-.canal-p {
+.channel-p {
     font-size: 14px; 
     margin-left: 5px;
 }
 
-.contenido2:hover {
+.contents2:hover {
     background-color: #42464D;
 }
 
-.contenido2:hover .canal-p{
+.contents2:hover .channel-p{
     color: rgb(220, 220, 220);
 }
 
-.contenido2:hover .ocultar_icono{
+.contents2:hover .hide_icon{
     opacity: 1;
 }
 
-.pie-columna {
+.foot_column {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -273,18 +266,18 @@ p.formato{
     justify-content: space-between;
 }
 
-.usuario, .icono {
+.user, .icon {
     display: flex;
     align-items: center;
 }
 
-p.nombre-usuario{
+p.profile_name{
     color: white; 
     font-size: 13px; 
     font-weight: bold;
 }
 
-.nombre-usuario, .username{
+.profile_name, .username{
     margin-left: 8px;
 }
 
@@ -298,7 +291,7 @@ p.username{
     margin-right: 7px;
 }
 
-.foto_usuario{
+.user_photo{
     width: 40px; 
     border-radius: 20px;
 }

@@ -11,18 +11,9 @@ body {
     color: #fff; /* Texto en blanco */
 }
 
-.mensaje_inicio h1{
-    color: rgb(240, 240, 240);
-}
-
-.mensaje_inicio p{
-    color: #B0B2B6; 
-    font-size: 14px; 
-    margin-top: 5px;
-}
 
 
-.chat-container {
+.chat_container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -44,7 +35,7 @@ body {
 }
 
 
-.message-input {
+.message_input {
     display: flex;
     align-items: center;
     padding-top: 15px;
@@ -56,7 +47,7 @@ body {
 }
 
 /*MARGEN IZQUIERDO DE EMOJI*/
-.chat_iconos {    
+.chat_icons {    
     margin-left: 20px; 
 }
 
@@ -91,7 +82,7 @@ button {
 }
 
 
-.user-avatar {
+.user_avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -101,38 +92,38 @@ button {
 
 
 /*JS*/
-.message-content {
+.message_content {
     display: flex;
     flex-direction: column;
 }
 
 
 
-.user-name {
+.user_name {
     font-weight: bold;
     font-size: 15px;
     display: flex; /* Utiliza flex para alinear el nombre de usuario y la fecha/hora */
     align-items: center; /* Centra verticalmente el contenido de user-name */
 }
 
-.message-text {
+.message_text {
     color: #fff; /* Texto del mensaje en blanco */
 }
 
-.message-time{
+.message_time{
     color: #A3A692;
     font-size: 11px;
 }
 
 
-.message-buttons {
+.message_buttons {
     display: flex;
     align-items: center;
     margin-left: 300px;
 }
 
-.edit-button,
-.delete-button {
+.edit_button,
+.delete_button {
     cursor: pointer;
     margin-left: 10px;
     padding: 2px 5px;
@@ -142,8 +133,8 @@ button {
 }
 
 
-.edit-button:hover,
-.delete-button:hover {
+.edit_button:hover,
+.delete_button:hover {
     background-color: #f0f0f080;
 }
 

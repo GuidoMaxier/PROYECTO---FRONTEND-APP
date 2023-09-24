@@ -1,24 +1,24 @@
 
 // Obtén una referencia al contenedor de mensajes y a los elementos de entrada
 const chatContainer = document.getElementById('chat');
-const messageText = document.getElementById('message-text');
-const sendButton = document.getElementById('send-button');
+const messageText = document.getElementById('message_text');
+const sendButton = document.getElementById('send_button');
 
 // Agregar un evento click al botón "Enviar"
 sendButton.addEventListener('click', () => {
-    enviarMensaje();
+    sendMessage();
 });
 
 // Agregar un evento keypress al área de texto para permitir el envío con Enter
 messageText.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        enviarMensaje();
+        sendMessage();
         e.preventDefault(); // Evitar el salto de línea en el textarea
     }
 });
 
 // Función para obtener la fecha y hora en el formato deseado
-function obtenerFechaHora() {
+function getDateTime() {
     const currentTime = new Date();
     const year = currentTime.getFullYear();
     const month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
@@ -29,11 +29,11 @@ function obtenerFechaHora() {
 }
 
 // Función para enviar un mensaje
-function enviarMensaje() {
+function sendMessage() {
     const message = messageText.value.trim();
     if (message !== '') {
-        const fechaHora = obtenerFechaHora();
-        agregarMensaje('images/monkey_256.png', 'Usuario Actual', message, fechaHora);
+        const dateTime = getDateTime();
+        addMessage('images/monkey_256.png', 'Usuario Actual', message, dateTime);
         messageText.value = '';
         // Desplazarse al final del historial de mensajes
         chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -41,31 +41,31 @@ function enviarMensaje() {
 }
 
 // Función para agregar un mensaje
-function agregarMensaje(avatarSrc, userName, messageText, messageTime) {
+function addMessage(avatarSrc, userName, messageText, messageTime) {
     // Crea un nuevo mensaje
     const message = document.createElement('div');
     message.classList.add('message');
 
     const userAvatar = document.createElement('img');
-    userAvatar.classList.add('user-avatar');
+    userAvatar.classList.add('user_avatar');
     userAvatar.src = avatarSrc;
     userAvatar.alt = 'User Avatar';
 
     const messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
+    messageContent.classList.add('message_content');
 
     const userElement = document.createElement('span');
-    userElement.classList.add('user-name');
+    userElement.classList.add('user_name');
     userElement.textContent = `${userName} - ${messageTime}`;
 
     const messageElement = document.createElement('span');
-    messageElement.classList.add('message-text');
+    messageElement.classList.add('message_text');
     messageElement.textContent = messageText;
 
 
     /*FUNCIONA MUY BIEN*/
     const editButton = document.createElement('span');
-    editButton.classList.add('edit-button');
+    editButton.classList.add('edit_button');
     editButton.textContent = 'Editar';
     
     editButton.addEventListener('click', () => {
@@ -79,10 +79,10 @@ function agregarMensaje(avatarSrc, userName, messageText, messageTime) {
             editButton.textContent = 'Guardar';
         } else {
             // Guardar el mensaje editado
-            const nuevoMensaje = messageElement.textContent.trim();
-            if (nuevoMensaje !== '') {
+            const newMessage = messageElement.textContent.trim();
+            if (newMessage !== '') {
                 // Actualizar el contenido del mensaje
-                messageElement.textContent = nuevoMensaje;
+                messageElement.textContent = newMessage;
                 // Deshabilitar la edición
                 messageElement.contentEditable = false;
                 messageElement.classList.remove('editable');
@@ -96,7 +96,7 @@ function agregarMensaje(avatarSrc, userName, messageText, messageTime) {
 
     // Botón para eliminar
     const deleteButton = document.createElement('span');
-    deleteButton.classList.add('delete-button');
+    deleteButton.classList.add('delete_button');
     deleteButton.textContent = 'Eliminar';
     deleteButton.addEventListener('click', () => {
         // Lógica para eliminar el mensaje aquí
@@ -104,7 +104,7 @@ function agregarMensaje(avatarSrc, userName, messageText, messageTime) {
     });
 
     const messageButtons = document.createElement('div');
-    messageButtons.classList.add('message-buttons');
+    messageButtons.classList.add('message_buttons');
     messageButtons.appendChild(editButton);
     messageButtons.appendChild(deleteButton);
 
