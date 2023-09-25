@@ -23,10 +23,27 @@ document.getElementById('create-channel').addEventListener('click', () => {
 document.getElementById('createServer').addEventListener('click', () => {
     const newServerName = serverNameInput.value;
     if (newServerName) {
-        const serverItem = document.createElement('li');
-        serverItem.classList.add('server');
-        serverItem.textContent = newServerName;
-        serverList.appendChild(serverItem);
+        // Crear la estructura HTML deseada
+        const newServerItem = document.createElement('div');
+        newServerItem.classList.add('profile1');
+
+        const serverIcon = document.createElement('p');
+        serverIcon.textContent = newServerName[0];
+
+        const whiteLine = document.createElement('div');
+        whiteLine.classList.add('white_line');
+
+        const hoverText = document.createElement('div');
+        hoverText.classList.add('hover');
+        hoverText.textContent = newServerName;
+
+        newServerItem.appendChild(serverIcon);
+        newServerItem.appendChild(whiteLine);
+        newServerItem.appendChild(hoverText);
+
+        // Agregar el nuevo servidor a la lista de servidores
+        serverList.appendChild(newServerItem);
+
         serverModal.style.display = 'none';
         serverNameInput.value = ''; // Limpiar el input
     }
