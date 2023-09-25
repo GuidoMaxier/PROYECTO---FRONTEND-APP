@@ -19,7 +19,7 @@ document.getElementById('create-channel').addEventListener('click', () => {
     channelModal.style.display = 'block';
 });
 
-// Capturar nombre de servidor y agregarlo
+/// Capturar nombre de servidor y agregarlo
 document.getElementById('createServer').addEventListener('click', () => {
     const newServerName = serverNameInput.value;
     if (newServerName) {
@@ -46,8 +46,19 @@ document.getElementById('createServer').addEventListener('click', () => {
 
         serverModal.style.display = 'none';
         serverNameInput.value = ''; // Limpiar el input
+
+        // Agregar un evento click al nuevo elemento
+        newServerItem.addEventListener('click', () => {
+            miFuncion(newServerName);
+        });
     }
 });
+
+// Define la función que se ejecutará al hacer clic en el elemento
+function miFuncion(nombreDelServidor) {
+    // Hacer lo que necesites con el nombre del servidor
+    console.log('Hiciste clic en el servidor:', nombreDelServidor);
+}
 
 // Capturar nombre de canal y agregarlo
 document.getElementById('createChannel').addEventListener('click', () => {
