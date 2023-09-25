@@ -1,0 +1,76 @@
+
+
+
+/* Estilo para las ventanas modales */
+.modal {
+    display:none; /* Oculta la ventana modal por defecto none */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7289da; /* Fondo semi-transparente */
+    z-index: 100; /* Asegura que esté en primer plano */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    width: 350px;
+    height: 150px;
+}
+
+/* Estilo para el contenido de la ventana modal */
+.modal-content {
+    background-color: #2f3135;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+
+    width: 310px;
+    height: 100px;
+    margin-top: 5px ;
+    margin-bottom: 5px ;
+  
+}
+
+/* Estilo para el botón de cierre de la ventana modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #37383b;
+}
+
+/* Estilo para los botones de las ventanas modales */
+button {
+    background-color: #7289da;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilo para los inputs de las ventanas modales */
+input[type="text"] {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Estilo para los elementos de la ventana modal */
+.modal h2 {
+    margin-top: 0;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los elementos de la ventana modal */
+.modal-content h2 {
+    margin-top: 0;
+}

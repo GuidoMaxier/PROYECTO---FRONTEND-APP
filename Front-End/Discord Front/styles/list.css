@@ -30,7 +30,7 @@ body {
 
 }
 
-.logo, .profile1, .profile2, .addServer, .button {
+/*.logo, .profile1, .profile2, .addServer, .button {
     background: #36393f;
     border-radius: 30px;
     width: 48px;
@@ -42,7 +42,93 @@ body {
     position: relative;
  
     
+}*/
+
+.logo, .profile1, .profile2, .server-list {
+    background: #36393f;
+    border-radius: 30px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
 }
+
+
+#create-server{
+    background: #36393f;
+
+    border-radius: 30px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position:relative;
+    margin-left: 0px;
+    font-size: 25px;
+    color:rgb(11, 229, 157);
+    margin-top: 15px; 
+}
+
+#create-server:hover{
+    border-radius: 15px;  /*CUADRADO al ACERCAR*/
+    color: white;
+    background-color: rgb(9, 194, 132);  
+}
+
+.image_button{
+    background: rgb(11, 229, 157);
+    border-radius: 30px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    margin-top: 15px;
+  
+}
+
+.image_button:hover img{
+    border-radius: 15px;  /*CUADRADO al ACERCAR*/
+    color: white;
+    background-color: rgb(11, 229, 157);
+}
+
+#create-channel{
+    background:none;
+    border-radius: 100%;
+    width: 0px;
+    height: 3.7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+   
+    font-size: 20px;
+    color:rgb(11, 229, 157);
+
+  
+}
+
+#create-channel:hover {
+    /*border-radius: 15px;  /*CUADRADO al ACERCAR*/
+    color: white;
+    background:none;
+}
+
+.channel-list{
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;;
+}
+
 
 .profile1, .p{
     border-radius: 15px; 
@@ -54,30 +140,41 @@ body {
 
 
 
-.button{
+/*.button{
     font-size: 25px;
     border: none;
     color: #3bd65a; 
     
-  }
+  }*/
 
 
  /*CUADRADO al ACERCAR*/
-.button:hover{
+/*.button:hover{
     border-radius: 15px; 
     color: white;
     background-color: #1b9c35;
     
-}
+}*/
 
-.logo:hover, .profile2:hover img, .addServer:hover{
+/*.logo:hover, .profile2:hover img, .addServer:hover{
+    border-radius: 15px; 
+    color: white;
+    background-color: rgb(65, 65, 211);
+}*/
+
+.logo:hover, .profile2:hover img, .server-list:hover img {
     border-radius: 15px;  /*CUADRADO al ACERCAR*/
     color: white;
     background-color: rgb(65, 65, 211);
 }
 
 
-.profile2 img {  /*ACHICA IMAGEN*/
+/*.profile2 img {  
+    width: 100%;
+    border-radius: 30px;
+}*/
+
+.profile2 img, .server-list img, .image_button img{  /*ACHICA IMAGEN*/
     width: 100%;
     border-radius: 30px;
 }
@@ -100,7 +197,7 @@ body {
 }
 
 
-.logo:hover .white_line, .profile1:hover .white_line, .profile2:hover .white_line {  /*LINEA BLANCA al COSTADO*/
+.logo:hover .white_line, .profile1:hover .white_line, .profile2:hover .white_line, .server-list:hover .white_line {  /*LINEA BLANCA al COSTADO*/
     opacity: 1;
     height: 40px;
 }
@@ -122,10 +219,17 @@ body {
 }
 
 
-.logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .addServer:hover .hover { /*Aparece TEXTO*/
+/*.logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .addServer:hover .hover { 
+    opacity: 1;
+}*/
+
+.logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .server-list:hover .hover, .image_button:hover .hover{ /*Aparece TEXTO*/
     opacity: 1;
 }
 
+#create-server:hover .hover{
+    opacity:1;
+}
 
 .grey_line {
     width: 100%;
@@ -188,9 +292,17 @@ body {
     margin-right: 7px;
 }
 
-.contents, .contents2 {
-    margin-top: 3px;
+.contents, .contents2{
+    margin-top: 10px;
     background: #42464D;
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#channelList{
+    margin-top: 3px;
+    background:none;
     padding: 7px;
     border-radius: 3px;
     cursor: pointer;
@@ -198,10 +310,11 @@ body {
 
 
 p.format{
-    color: rgb(231, 231, 231); 
+   
     font-weight: bold; 
     font-size: 14px; 
     margin-left: 5px
+    
 }
 
 
@@ -238,16 +351,16 @@ p.format{
     opacity: 1;
 }
 
-.channel-p {
+.channel-p, .Channel {
     font-size: 14px; 
-    margin-left: 5px;
+  
 }
 
 .contents2:hover {
     background-color: #42464D;
 }
 
-.contents2:hover .channel-p{
+.contents2:hover .channel-p, .contents:hover .Channel{
     color: rgb(220, 220, 220);
 }
 

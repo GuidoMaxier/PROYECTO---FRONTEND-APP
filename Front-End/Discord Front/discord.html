@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="styles/list.css">
         <link rel="stylesheet" href="styles/message_column.css">
         <link rel="stylesheet" href="styles/chat.css">
+        <link rel="stylesheet" href="styles/addServer.css">
     </head>
     <body>
         <div class="list">
@@ -16,7 +17,9 @@
                     <div class="white_line"></div>  <!--LÍNEA BLANCA-->
                     <div class="hover">Home</div>
                 </div>
+
                 <div class="grey_line"></div>
+
                 <div class="profile1">  
                     <p>S</p>
                     <div class="white_line"></div>
@@ -24,20 +27,107 @@
                 </div>
 
 
-                <div class="profile2">                     <!--Perfil 2-->
+                <!--<div class="profile2">                     
                     <img src="images/monkey_256.png">
                     <div class="white_line"></div>
                     <div class="hover">Perfil 2</div>
-                </div>
+                </div>-->
 
-                <div class="addServer">          <!--Agregar Servidor-->
+                <!--<div class="server_list" id="serverList" ></div>-->
+                
+                <ul class="server-list" id="serverList">
+                    <li class="server">Servidor 1</li>
+                    <li class="server">Servidor 2</li>
+                    <!-- Agrega más servidores aquí -->
+                </ul>
+               
+
+
+                <!--<ul class="server-list" id="serverList">
+                    <li class="server">SERver</li>
+                    <img src="images/monkey_256.png">
+                    <div class="white_line"></div>
+                    <div class="hover">Servidor 1</div>
+                    
+                    
+                </ul>-->
+
+
+
+                <!--<div class="addServer">          
                     <button class="button">+</button>
                     <div class="hover" style="right: -163px">Añadir un servidor</div>
+                </div>-->
+
+                <button id="create-server">+</button>
+                <div class="hover" style="right: -163px">Añadir un servidor</div>
+
+                <a class="image_button">
+                    <img src="icons/brujula.png">
+                    <div class="hover" style="right: -163px">Explorar Servidores</div>
+                </a>
+
+
+            </div>
+
+            <!-- Ventana modal para crear servidor -->
+            <div id="serverModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeServerModal">&times;</span>
+                    <h2>Crear Servidor</h2>
+                    <input type="text" id="serverNameInput" placeholder="Nombre del Servidor">
+                    <button id="createServer">Crear</button>
+                </div>
+            </div>
+
+            <!-- Ventana modal para crear canal -->
+            <div id="channelModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeChannelModal">&times;</span>
+                    <h2>Crear Canal</h2>
+                    <input type="text" id="channelNameInput" placeholder="Nombre del Canal">
+                    <button id="createChannel">Crear</button>
                 </div>
             </div>
 
 
-            <div class="channel_column">                 <!--LISTADO CANALES-->
+
+             <!-- Columna de canales ORIGINALLLL-->
+            <!--<div class="channel-column">
+               
+                <h1 class="server-name">Servidor</h1>
+                <p class="p1">CANALES</p>
+               
+                <button id="create-channel">Crear Canal</button>
+              
+                <ul class="channel-list" id="channelList">
+                    <li class="channel"># Canal 1</li>
+                    <li class="channel"># Canal 2</li>
+            
+                </ul>
+            </div>-->
+
+
+              <!-- Columna de canales CCAMBIANDOOO-->
+            <!--<div class="channel-column">
+                <h1 class="server-name">Servidor</h1>
+
+
+
+                <p class="p1">CANALES</p>
+              
+                <button id="create-channel">Crear Canal</button>
+              
+                <ul class="channel-list" id="channelList">
+                    <li class="channel"># Canal 1</li>
+                    <li class="channel"># Canal 2</li>
+                   
+                </ul>
+            </div>-->
+
+
+            <div class="channel_column">   
+                             
                 <div class="server_name">
                     <p>Servidor</p>
                     <img src="icons/chevron-down (2).svg">
@@ -49,15 +139,35 @@
                         <div class="name">
                             <p class="p1">CANALES</p>
                             <div class="holder">
-                                <img src="icons/plus-circle.svg">
-                                <div class="hover2">Crear canal</div>
+                                <button id="create-channel">+</button>
+                                <div class="hover2" style="left: 10px ">Crear canal</div>
+
+                                <!--<ul class="channel-list" id="channelList">
+                                    <li class="Channel"># Canal 1</li>
+                                    <li class="Channel"># Canal 2</li>
+                                   
+                                </ul>-->
+
+                                <!--<div class="hover" style="right: -163px">Crear canal</div>-->
+                                
+                                <!--<img src="icons/plus-circle.svg">-->
+                                
                             </div>
                         </div>
 
-                        <div class="contents">   <!--Adentro del CANALES CHAT-->
+
+                        <div class="contents" id="contents">   <!--Adentro del CANALES CHAT-->
                             <div>
-                                <img src="icons/hash.svg">
-                                <p class="format">chat</p>   <!--LETRA BLANCA NEGRITA-->
+                                <ul class="channel-list" id="channelList">
+                                    <li class="Channel"># Canal 1</li>
+                                    
+                                   
+                                </ul>
+
+
+
+                                <!--<img src="icons/hash.svg">
+                                <p class="format">chat</p> -->  
                             </div>
 
                             <div>
@@ -73,16 +183,35 @@
                             </div>
 
                         </div>
+                        
+                        <!--Adentro del CANALES MEMES-->
+                        <div class="contents2" id="contents2">   
 
-                        <div class="contents2">   <!--Adentro del CANALES MEMES-->
                             <div>
+                                <ul class="channel-list" id="channelList">
+                                    
+                                    <li class="Channel"># Canal 2</li>
+                                    
+                                   
+                                </ul>
+
+
+
+                                <!--<img src="icons/hash.svg">
+                                <p class="format">chat</p> -->  
+                            </div>
+
+
+
+
+                            <!--<div>
                                 <img src="icons/hash.svg">
                                 <p class="channel-p">memes</p>
-                            </div>
+                            </div>-->
 
                             <div >
                                 <div class="holder">
-                                    <img src="icons/user-plus.svg" class="hide_icon"> <!--Ocultar icono-->
+                                    <img src="icons/user-plus.svg" class="hide_icon"> 
                                     <div class="hover2">Crear invitación</div>
                                 </div>
                                 <div class="holder">
@@ -91,6 +220,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
 
@@ -211,6 +341,13 @@
 
 
 
+            <div class="no_servers">
+                <p>Aún no te has unido a un servidor.</p>
+                <p>Intenta buscar uno o crea uno propio. Ver si anda sin p</p>
+            </div>
+
+
+
             <div class="messages_">
                 <div class="start_message">  <!--MENSAJE INICIO-->
                     <h1>¡Bienvenido!</h1>
@@ -232,7 +369,7 @@
                         <div class="chat_icons">
                             <!--<img src="icons/gift.svg">
                             <img src="icons/image.svg">-->
-                            <img src="icons/smile.svg">
+                            <!--<img src="icons/smile.svg">-->
                         </div>
                     </div>
                 </div>
@@ -243,5 +380,6 @@
         </div>
 
         <script src="script/chat.js"></script>
+        <script src="script/add.js"></script>
     </body>
 </html>
