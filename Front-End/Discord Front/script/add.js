@@ -64,21 +64,58 @@ function miFuncion(nombreDelServidor) {
 document.getElementById('createChannel').addEventListener('click', () => {
     const newChannelName = channelNameInput.value;
     if (newChannelName) {
+        // Crear la estructura HTML deseada
+        const newContents = document.createElement('div');
+        newContents.classList.add('contents2');
+        newContents.id = 'contents2'; // Asignar un id si es necesario
+        
 
-        const channelItem = document.createElement('div');
-        channelItem.classList.add('channel-list');
+        const newChannelList = document.createElement('div');
+        newChannelList.classList.add('channel-list');
+        newChannelList.id = 'channelList'; // Asignar un id si es necesario
+
+        const channelItem = document.createElement('p');
+        channelItem.classList.add('Channel');
         channelItem.textContent = `# ${newChannelName}`;
-        
-        
 
-        // Agrega el nuevo canal a la lista del contenido
-        channelList.appendChild(channelItem);
+        newChannelList.appendChild(channelItem);
         newContents.appendChild(newChannelList);
+
+        // Agregar los elementos adicionales al contenido
+        const holder1 = document.createElement('div');
+        holder1.classList.add('holder');
+        const img1 = document.createElement('img');
+        img1.src = 'icons/user-plus.svg';
+        const hover1 = document.createElement('div');
+        hover1.classList.add('hover2');
+        hover1.textContent = 'Crear invitación';
+        holder1.appendChild(img1);
+        holder1.appendChild(hover1);
+
+        const holder2 = document.createElement('div');
+        holder2.classList.add('holder');
+        const img2 = document.createElement('img');
+        img2.src = 'icons/conf16.svg';
+        const hover2 = document.createElement('div');
+        hover2.classList.add('hover2');
+        hover2.textContent = 'Editar canal';
+        holder2.appendChild(img2);
+        holder2.appendChild(hover2);
+
+        const optionsDiv = document.createElement('div');
+        optionsDiv.appendChild(holder1);
+        optionsDiv.appendChild(holder2);
+
+        newContents.appendChild(optionsDiv);
+
+        // Agregar el nuevo contenido a la lista de servidores
+        channelList.appendChild(newContents);
 
         channelModal.style.display = 'none';
         channelNameInput.value = ''; // Limpiar el input
     }
 });
+
 
 // Botón de cierre para la ventana modal de servidor
 document.getElementById('closeServerModal').addEventListener('click', () => {
