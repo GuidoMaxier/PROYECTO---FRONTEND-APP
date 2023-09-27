@@ -5,6 +5,9 @@ const serverNameInput = document.getElementById('serverNameInput');
 const channelNameInput = document.getElementById('channelNameInput');
 const serverList = document.getElementById('serverList');
 const channelList = document.getElementById('channelList');
+const channelColumn = document.getElementById('channel_column');
+const messages = document.getElementById('messages');
+const noServers = document.getElementById('no_servers');
 
 
 // Mostrar ventana modal para crear servidor
@@ -12,6 +15,10 @@ document.getElementById('create-server').addEventListener('click', () => {
     serverNameInput.value = ''; // Limpiar el input
     serverModal.style.display = 'block';
 });
+
+
+
+
 
 // Mostrar ventana modal para crear canal
 document.getElementById('create-channel').addEventListener('click', () => {
@@ -21,6 +28,8 @@ document.getElementById('create-channel').addEventListener('click', () => {
 
 /// Capturar nombre de servidor y agregarlo
 document.getElementById('createServer').addEventListener('click', () => {
+
+    noShowServers();
     const newServerName = serverNameInput.value;
     if (newServerName) {
         // Crear la estructura HTML deseada
@@ -47,12 +56,45 @@ document.getElementById('createServer').addEventListener('click', () => {
         serverModal.style.display = 'none';
         serverNameInput.value = ''; // Limpiar el input
 
+        //AGREGANDO FUNCIONAAAA
         // Agregar un evento click al nuevo elemento
+        //newServerItem.addEventListener('click', () => {
+            //showChannelColumn();
+        //});
+
+        // Agregar un evento click al nuevo servidor
         newServerItem.addEventListener('click', () => {
-            miFuncion(newServerName);
+ 
+            toggleChannelColumnVisibility();
         });
     }
 });
+
+
+// Variable para llevar el seguimiento del estado de la columna
+let channelColumnVisible = true;
+
+// Función para alternar la visibilidad de la columna "channel_column"
+function toggleChannelColumnVisibility() {
+    if (channelColumnVisible) {
+        // Si la columna está visible, la ocultamos
+        channelColumn.style.display = 'none';
+    } else {
+        // Si la columna está oculta, la mostramos
+        channelColumn.style.display = 'block';
+    }
+    // Invertir el estado de la columna
+    channelColumnVisible = !channelColumnVisible;
+}
+
+
+// Función ocultar "no_servers"
+function noShowServers() {
+    noServers.style.display = 'none';
+}
+
+
+
 
 // Define la función que se ejecutará al hacer clic en el elemento
 function miFuncion(nombreDelServidor) {
@@ -85,7 +127,7 @@ document.getElementById('createChannel').addEventListener('click', () => {
         const holder1 = document.createElement('div');
         holder1.classList.add('holder');
         const img1 = document.createElement('img');
-        img1.src = 'icons/user-plus.svg';
+        img1.src = '../assets/user-plus-16.svg';
         const hover1 = document.createElement('div');
         hover1.classList.add('hover2');
         hover1.textContent = 'Crear invitación';
@@ -95,7 +137,7 @@ document.getElementById('createChannel').addEventListener('click', () => {
         const holder2 = document.createElement('div');
         holder2.classList.add('holder');
         const img2 = document.createElement('img');
-        img2.src = 'icons/conf16.svg';
+        img2.src = '../assets/settings-16.svg';
         const hover2 = document.createElement('div');
         hover2.classList.add('hover2');
         hover2.textContent = 'Editar canal';
@@ -113,8 +155,26 @@ document.getElementById('createChannel').addEventListener('click', () => {
 
         channelModal.style.display = 'none';
         channelNameInput.value = ''; // Limpiar el input
+
+
+
+        //AGREGANDO FUNCIONAAAA
+        // Agregar un evento click al nuevo elemento
+        newContents.addEventListener('click', () => {
+            showMessages();
+        });
     }
 });
+
+
+// Función para mostrar la columna "channel_column"  FUNCIONAAAAAA
+function showMessages() {
+    // Mostrar la columna "channel_column"
+    messages.style.display = 'block';
+
+   
+}
+
 
 
 // Botón de cierre para la ventana modal de servidor

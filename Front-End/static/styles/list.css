@@ -13,8 +13,14 @@ body {
     display: flex;
 }
 
-.server_column, .channel_column{
+.server_column{
     display: flex;
+    flex-direction: column;
+}
+
+
+.channel_column{
+    display: none;
     flex-direction: column;
 }
 

@@ -16,29 +16,29 @@
         
 
         <div class="photo-row">
-            <div class="photo" onclick="openModal('Foto 1')">
+            <div class="photo" onclick="openModal('Python')">
                 <img src="../assets/python.png" alt="Python">
                 <p>Python</p>
             </div>
-            <div class="photo" onclick="openModal('Foto 2')">
+            <div class="photo" onclick="openModal('GitHub')">
                 <img src="../assets/github.png" alt="GitHub">
                 <p>GitHub</p>
             </div>
-            <div class="photo" onclick="openModal('Foto 3')">
+            <div class="photo" onclick="openModal('HTML')">
                 <img src="../assets/html.png" alt="Html">
                 <p>HTML</p>
             </div>
         </div>
         <div class="photo-row">
-            <div class="photo" onclick="openModal('Foto 4')">
+            <div class="photo" onclick="openModal('MySQL')">
                 <img src="../assets/mysql.png" alt="MySql">
                 <p>MySQL</p>
             </div>
-            <div class="photo" onclick="openModal('Foto 5')">
+            <div class="photo" onclick="openModal('CSS')">
                 <img src="../assets/css.png" alt="Foto 5">
                 <p>CSS</p>
             </div>
-            <div class="photo" onclick="openModal('Foto 6')">
+            <div class="photo" onclick="openModal('Java')">
                 <img src="../assets/java.png" alt="Foto 6">
                 <p>Java</p>
             </div>
@@ -50,7 +50,7 @@
                 <p>¿Quieres unirte a este servidor?</p>
 
                 <div class="button-container"></div>
-                    <button class ="modal-buttons" onclick="confirmAction()">Confirmar</button>
+                    <button class ="modal-buttons" onclick="confirmation()">Confirmar</button>
                     <button class ="modal-buttons" onclick="closeModal()">Cancelar</button>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 modal.style.display = "none";
             }
     
-            function confirmAction() {
+            function confirmation() {
                 alert(`Te has unido al servidor ${currentPhoto}`);
                 closeModal();
             }

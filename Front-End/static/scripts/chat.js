@@ -33,7 +33,7 @@ function sendMessage() {
     const message = messageText.value.trim();
     if (message !== '') {
         const dateTime = getDateTime();
-        addMessage('images/monkey_256.png', 'Usuario Actual', message, dateTime);
+        addMessage('../assets/monkey.png', 'Usuario Actual', message, dateTime);
         messageText.value = '';
         // Desplazarse al final del historial de mensajes
         chatContainer.scrollTop = chatContainer.scrollHeight;
