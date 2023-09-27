@@ -3,25 +3,28 @@
 
 /* Estilo para las ventanas modales */
 .modal {
-    display:none; /* Oculta la ventana modal por defecto none */
+    display:none; 
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #7289da; /* Fondo semi-transparente */
-    z-index: 100; /* Asegura que esté en primer plano */
+    background-color: none; 
+    z-index: 100; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    
     text-align: center;
     color: #fff;
     width: 350px;
     height: 150px;
 }
 
+/*#7289da*/
+/*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);*/
+
 /* Estilo para el contenido de la ventana modal */
 .modal-content {
-    background-color: #2f3135;
+    background-color: #42464d;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -30,6 +33,9 @@
     height: 100px;
     margin-top: 5px ;
     margin-bottom: 5px ;
+
+    position: relative;
+    
   
 }
 
@@ -66,7 +72,7 @@ input[type="text"] {
 /* Estilo para los elementos de la ventana modal */
 .modal h2 {
     margin-top: 0;
-    font-size: 25px;
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
@@ -74,3 +80,12 @@ input[type="text"] {
 .modal-content h2 {
     margin-top: 0;
 }
+
+
+
+
+    
+
+    
+  
+    

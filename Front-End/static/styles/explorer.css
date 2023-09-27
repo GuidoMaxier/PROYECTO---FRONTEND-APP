@@ -60,12 +60,8 @@ margin-bottom: 20px;
 }
 
 
-
-
-
-
 .close {
-background-color: #000000;
+background-color: #37383b;
 padding: 2px;
 font-size: 24px;
 cursor: pointer;
@@ -87,7 +83,8 @@ cursor: pointer;
 
 /* Estilo para el fondo del botón de cierre (X) al pasar el mouse sobre él */
 .close:hover {
-color: red;
+color: #7289da;
+
 }
 
 
@@ -136,8 +133,8 @@ color: red;
     text-align: center; /* Alinea los botones en el centro del contenedor */
 }
 
-.modal-buttons {
-    margin: 30px; /* Agrega un pequeño margen entre los botones */
+/*.modal-buttons {
+    margin: 30px; 
     margin-top: 18px;
     background-color: rgb(67, 67, 205);
     color: white;
@@ -146,8 +143,22 @@ color: red;
     font-family: Arial, sans-serif;
     padding: 8px 8px;
     
+}*/
+
+button {
+    background-color: #7289da;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin:15px;
 }
 
-
-
+button:hover {
+    background-color: #000000;
+    color: #fff;
+    
+}
 
