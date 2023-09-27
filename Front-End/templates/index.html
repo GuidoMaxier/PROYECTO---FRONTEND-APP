@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y registro</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="logeo">
+            <div class="login">
+                    <p class="t1">¡Bienvenido de nuevo!</p>
+                    <p class="t2">¡Estamos muy entusiasmados por verte de nuevo!</p>
+                    
+                    <form method="post" id="login-form">
+                        <p>CORREO ELECTRÓNICO</p>
+                        <input type="text" id="username" name="usuario">
+                        <p>CONTRASEÑA</p>
+                        <input type="password" id="password" name="clave">
+                        <button type="submit">Iniciar sesión</button>
+                        <!-- <p id="message"></p> -->
+                    </form>
+                    
+                    <p class="register-link">¿Necesitas una cuenta? <a class="r">Registrate</a></p>
+            
+            </div>
+
+            <div class="registro">
+                <p class="t2">Crear una cuenta</p>
+                <form method="post" id="register-form">
+
+                    <p>CORREO ELECTRÓNICO</p>
+                    <input type="email" id='email' name="email">
+                    <p>NOMBRE DE USUARIO</p>
+                    <input type="text" id="username_r" name="nombre_usuario">
+                    <p>NOMBRE</p>
+                    <input type="text" id='nombre' name="nombre">
+                    <p>APELLIDO</p>
+                    <input type="text" id='apellido'name="apellido">
+                    <p>CONTRASEÑA</p>
+                    <input type="password" id="password_r" name="clave">
+                    <p>FECHA DE NACIMIENTO</p>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                    <button type="submit">Registrarse</button>
+                    
+                </form>
+
+                <p class="register-link"><a class="l">¿Ya tienes una cuenta?</a></p>
+            </div>
+                
+        </div>
+    </main>
+
+    <script src="../static/scripts/index.js"></script>
+    <script src="../static/scripts/login.js"></script>
+    <script src="../static/scripts/registro.js"></script>
+    
+
+</body>
+</html>

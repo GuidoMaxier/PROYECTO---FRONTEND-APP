@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidores</title>
+    <link rel="stylesheet" href="../static/styles/explorer.css">
+</head>
+
+<body>
+    
+    <div class="container" id="container">
+
+       
+        <span class="close" onclick="closeModal()">&times;</span>
+        <input placeholder="Buscar servidor" class="search">  <!--BUSCADOR-->
+        
+
+        <div class="photo-row">
+            <div class="photo" onclick="openModal('Python')">
+                <img src="../assets/python.png" alt="Python">
+                <p>Python</p>
+            </div>
+            <div class="photo" onclick="openModal('GitHub')">
+                <img src="../assets/github.png" alt="GitHub">
+                <p>GitHub</p>
+            </div>
+            <div class="photo" onclick="openModal('HTML')">
+                <img src="../assets/html.png" alt="Html">
+                <p>HTML</p>
+            </div>
+        </div>
+        <div class="photo-row">
+            <div class="photo" onclick="openModal('MySQL')">
+                <img src="../assets/mysql.png" alt="MySql">
+                <p>MySQL</p>
+            </div>
+            <div class="photo" onclick="openModal('CSS')">
+                <img src="../assets/css.png" alt="Foto 5">
+                <p>CSS</p>
+            </div>
+            <div class="photo" onclick="openModal('Java')">
+                <img src="../assets/java.png" alt="Foto 6">
+                <p>Java</p>
+            </div>
+        </div>
+
+
+        <div id="channelModal" class="modal">
+            <div class="modal-content">
+                <p>¿Quieres unirte a este servidor?</p>
+
+                <div class="button-container"></div>
+                    <button class ="modal-buttons" onclick="confirmation()">Confirmar</button>
+                    <button class ="modal-buttons" onclick="closeModal()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            let currentPhoto = "";
+    
+            function openModal(photoName) {
+                currentPhoto = photoName;
+                const modal = document.getElementById("modal_e");
+                modal.style.display = "block";
+            }
+    
+            function closeModal() {
+                const modal = document.getElementById("channelModal");
+                modal.style.display = "none";
+            }
+    
+            function confirmation() {
+                alert(`Te has unido al servidor ${currentPhoto}`);
+                closeModal();
+            }
+        </script>
+
+
+    </div>
+
+
+</body>
+</html>

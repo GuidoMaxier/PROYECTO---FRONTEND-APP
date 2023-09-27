@@ -1,0 +1,72 @@
+.message_column {
+    background: #36393F;
+    flex: 1;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px;
+    box-shadow: 0px 1px 2px rgb(24, 24, 24);
+}
+
+.top div {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 200px;
+    border-radius: 5px;
+    background: #202225;
+    border: none;
+    padding: 5px;
+    outline: transparent solid 5px;;
+    caret-color: rgb(187, 185, 190);
+    color: rgb(220, 220, 220);
+    transition: width 0.15s;
+    margin-right: 10px;
+}
+
+.search ::placeholder {
+    color: #9A9DA1
+}
+
+.search :focus{
+    width: 220px;
+}
+
+.top_icon .holder .hover2 {
+    top: 110%;
+    left: -20px
+}
+
+/*.messages {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 25px;
+    position: relative;
+}*/
+
+.start_message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    left:41%;
+   
+}
+
+.start_message h1{
+    color: rgb(240, 240, 240);
+}
+
+.start_message p{
+    color: #B0B2B6; 
+    font-size: 14px; 
+    margin-top: 5px;
+}
+
+
+

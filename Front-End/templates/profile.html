@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="../static/styles/profile.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Perfil de Usuario <button id="logout">Logout</button></h1>
+
+        <form id="profile-form" enctype="multipart/form-data">
+            <!-- Cuadro de diálogo oculto -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeButton">&times;</span>
+                    <h3>Selecciona un avatar</h3>
+                    <div class="image-container">
+                        <div class="image-row">
+                            <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
+                            <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
+                            <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+                            <img src="../static/assets/avatars/soldier.png" alt="Soldier" onclick="seleccionarAvatar('../static/assets/avatars/soldier.png')" />
+                        </div>
+                        <div class="image-row">
+                            <img src="../static/assets/avatars/pilot.png" alt="Pilot" onclick="seleccionarAvatar('../static/assets/avatars/pilot.png')" />
+                            <img src="../static/assets/avatars/robot.png" alt="Robot" onclick="seleccionarAvatar('../static/assets/avatars/robot.png')" />
+                            <!-- Agrega las imágenes restantes aquí -->
+                        </div>
+                    </div>
+                    <button type="button" id="guardarButton" class="boton-red">seleccionar Avatar</button>
+                </div>
+            </div>
+
+            <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda" name="ruta_imagen_perfil" >
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" value="John">
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" value="Doe">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="johndoe@example.com">
+
+            <label for="username">User Name:</label>
+            <input type="text" name="username" value="johnd">
+            
+            <!-- Campos adicionales (contraseña, fecha de nacimiento, etc.) -->
+
+            <button type="button" id="Guardar-Cambios">Guardar Cambios</button>
+            <button type="button" id="Cambiar-Clave">Cambiar Contraseña</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <button id="Eliminar-usuario">Eliminar Cuenta</button>
+        
+    </div>
+
+    <div id="modal-clave" class="modal-clave" style="display: none;">
+        <div class="modal-content-clave">
+            <span class="close-clave" id="closeClave">&times;</span>
+            <h3>Cambiar Contraseña</h3>
+            <form id="cambiar-clave-form">
+                <label for="nuevaclave">Nueva Contraseña:</label>
+                <input type="password" id="nuevaclave" name="nuevaclave" required>
+    
+                <label for="confirmacion">Confirmar Contraseña:</label>
+                <input type="password" id="confirmacion" name="confirmacion" required>
+    
+                <button type="button" id="guardarClave">Guardar Contraseña</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="../static/scripts/profile.js"></script>
+    <script src="../static/scripts/modal.js"></script>
+</body>
+</html>

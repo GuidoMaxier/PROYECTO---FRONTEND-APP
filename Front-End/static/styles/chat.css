@@ -1,0 +1,198 @@
+* {
+    font-family: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
+}
+
+
+body {
+    margin: 12;
+    padding: 10;
+    background-color: #36393f; /* Fondo oscuro */
+    color: #fff; /* Texto en blanco */
+}
+
+.messages{
+    display: none;
+}
+
+.chat_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2f3136; /* Fondo del contenedor de chat */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(161, 10, 10, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 460px; 
+    width: 530px;
+    
+
+}
+
+.chat {
+    flex-grow: 1;
+    overflow-y:scroll;  /*Agrega una barra de desplazamiento vertical */
+    padding-right: 10px; /* Evita que las barras de desplazamiento superpongan el contenido */
+}
+
+
+.message_input {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    background-color: #68686ac0; /* Fondo del área de escritura de mensajes */
+    border-radius: 5px;
+    padding: 5px;
+    /*color:rgb(255, 255, 255);*/
+   
+}
+
+/*MARGEN IZQUIERDO DE EMOJI*/
+.chat_icons {    
+    margin-left: 20px; 
+}
+
+
+
+textarea {
+    flex-grow: 1;
+    resize: none; /* Evita que el área de texto se redimensione */
+    padding: 5px;
+    background-color: #40444b; /* Fondo del área de escritura de mensajes */
+    color: #fff; /* Texto en blanco */
+    border: none;
+}
+
+button {
+    padding: 10px 10px;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos para los mensajes JS */
+.message {
+    display: flex;
+    justify-content: flex-start; /* Alinea los mensajes a la izquierda */
+    margin-bottom: 10px;
+    padding-top: 10px;
+    line-height: 1.5;
+}
+
+
+.user_avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+
+/*JS*/
+.message_content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.user_name {
+    font-weight: bold;
+    font-size: 15px;
+    display: flex; /* Utiliza flex para alinear el nombre de usuario y la fecha/hora */
+    align-items: center; /* Centra verticalmente el contenido de user-name */
+}
+
+.message_text {
+    color: #fff; /* Texto del mensaje en blanco */
+}
+
+.message_time{
+    color: #A3A692;
+    font-size: 11px;
+}
+
+
+.message_buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 300px;
+}
+
+.edit_button,
+.delete_button {
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+
+.edit_button:hover,
+.delete_button:hover {
+    background-color: #f0f0f080;
+}
+
+
+/*.send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }*/
+  
+
+
+  /* Estilo del scroll en modo oscuro */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+    background-color: #36393f; /* Color de fondo del scroll */
+}
+
+/* Estilo del thumb (el control deslizante) en el scroll */
+::-webkit-scrollbar-thumb {
+    background-color: #5b5e69; /* Color del thumb */
+    border-radius: 5px; /* Borde redondeado del thumb */
+}
+
+/* Estilo del thumb en estado hover (cuando se pasa el cursor sobre él) */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #40444b; /* Color del thumb en hover */
+}
+
+
+.top {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos al final del contenedor (derecha en este caso) */
+    align-items: center; 
+    
+
+
+
+    
+
+}
+
+
+.no_servers {
+    text-align: center; /* Centrar horizontalmente el texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Esto centra verticalmente el contenido en la ventana del navegador */
+}
+
+.no_servers p {
+    margin-top: 10px;
+}
