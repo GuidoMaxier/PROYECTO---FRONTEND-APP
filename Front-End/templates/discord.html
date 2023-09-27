@@ -8,10 +8,13 @@
         <link rel="stylesheet" href="../static/styles/message_column.css">
         <link rel="stylesheet" href="../static/styles/chat.css">
         <link rel="stylesheet" href="../static/styles/addServer.css">
+        <link rel="stylesheet" href="../static/styles/explorer.css">
 
       
     </head>
     <body>
+      
+
         <div class="list">
             <div class="server_column">
                 <div class="logo">                    <!--ICONO DISCORD-->
@@ -376,8 +379,68 @@
       
         </div>
 
+
+
+        <!--EXPLORADOR-->
+        <div class="container" id="container">
+
+       
+            <span class="close" id="close-container" >&times;</span>
+            <input placeholder="Buscar servidor" class="search2">  <!--BUSCADOR-->
+            
+    
+            <div class="photo-row">
+                <div class="photo" onclick="openModal('Python')">
+                    <img src="../assets/python.png" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="photo" onclick="openModal('GitHub')">
+                    <img src="../assets/github.png" alt="GitHub">
+                    <p>GitHub</p>
+                </div>
+                <div class="photo" onclick="openModal('HTML')">
+                    <img src="../assets/html.png" alt="Html">
+                    <p>HTML</p>
+                </div>
+            </div>
+            <div class="photo-row">
+                <div class="photo" onclick="openModal('MySQL')">
+                    <img src="../assets/mysql.png" alt="MySql">
+                    <p>MySQL</p>
+                </div>
+                <div class="photo" onclick="openModal('CSS')">
+                    <img src="../assets/css.png" alt="Foto 5">
+                    <p>CSS</p>
+                </div>
+                <div class="photo" onclick="openModal('Java')">
+                    <img src="../assets/java.png" alt="Foto 6">
+                    <p>Java</p>
+                </div>
+            </div>
+    
+    
+            <div id="modal_e" class="modal_e">
+                <div class="modal-content_e">
+                    <p>¿Quieres unirte a este servidor?</p>
+    
+                    <div class="button-container"></div>
+                        <button class ="modal-buttons" onclick="confirmation()">Confirmar</button>
+                        <button class ="modal-buttons" onclick="closeModal()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
         <script src="../static/scripts/chat.js"></script>
         <script src="../static/scripts/add.js"></script>
+        <script src="../static/scripts/explorer.js"></script>
 
     </body>
 </html>
