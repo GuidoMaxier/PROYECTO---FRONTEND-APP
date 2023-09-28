@@ -2,13 +2,14 @@ html {
     height: 100%;
 }
 
+/*Estilo cuerpo*/
 body {
     background: rgb(40, 40, 40);
     display: flex;
     height: 100%;
 }
 
-
+/*Estilo listados*/
 .list {
     display: flex;
 }
@@ -37,20 +38,7 @@ body {
 
 }
 
-/*.logo, .profile1, .profile2, .addServer, .button {
-    background: #36393f;
-    border-radius: 30px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
- 
-    
-}*/
-
+/*Estilo imagen perfil columna-servidor*/
 .logo, .profile1, .profile2, .server-list {
     background: #36393f;
     border-radius: 30px;
@@ -63,7 +51,7 @@ body {
     position: relative;
 }
 
-
+/*Estilos botón crear servidor*/
 #create-server{
     background: #36393f;
 
@@ -107,6 +95,7 @@ body {
     background-color: rgb(11, 229, 157);
 }
 
+/*Estilos crear canal*/
 #create-channel{
     background:none;
     border-radius: 100%;
@@ -130,13 +119,14 @@ body {
     background:none;
 }
 
+/*Estilo listado de canales*/
 .channel-list{
     list-style-type: none;
     margin-top: 10px;
     margin-bottom: 10px;;
 }
 
-
+/*Estilos de servidor*/
 .profile1, .p{
     border-radius: 15px; 
     background: #5865f2;
@@ -146,48 +136,21 @@ body {
 }
 
 
-
-/*.button{
-    font-size: 25px;
-    border: none;
-    color: #3bd65a; 
-    
-  }*/
-
-
- /*CUADRADO al ACERCAR*/
-/*.button:hover{
-    border-radius: 15px; 
-    color: white;
-    background-color: #1b9c35;
-    
-}*/
-
-/*.logo:hover, .profile2:hover img, .addServer:hover{
-    border-radius: 15px; 
-    color: white;
-    background-color: rgb(65, 65, 211);
-}*/
-
+/*Estilos al ahcer hover*/
 .logo:hover, .profile2:hover img, .server-list:hover img {
     border-radius: 15px;  /*CUADRADO al ACERCAR*/
     color: white;
     background-color: rgb(65, 65, 211);
 }
 
-
-/*.profile2 img {  
-    width: 100%;
-    border-radius: 30px;
-}*/
-
-.profile2 img, .server-list img, .image_button img{  /*ACHICA IMAGEN*/
+/*Achica imagen*/
+.profile2 img, .server-list img, .image_button img{  
     width: 100%;
     border-radius: 30px;
 }
 
 
-
+/*Estilo linea blanca*/
 .white_line {
     position: absolute;
     width: 4px;
@@ -226,9 +189,6 @@ body {
 }
 
 
-/*.logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .addServer:hover .hover { 
-    opacity: 1;
-}*/
 
 .logo:hover .hover, .profile1:hover .hover, .profile2:hover .hover, .server-list:hover .hover, .image_button:hover .hover{ /*Aparece TEXTO*/
     opacity: 1;
@@ -238,6 +198,7 @@ body {
     opacity:1;
 }
 
+/*Estilo linea gris*/
 .grey_line {
     width: 100%;
     height: 1px;
@@ -246,7 +207,7 @@ body {
 
 
 
-/* LEFT 2 STYLES */
+/* Estilos Columna Canales */
 
 .channel_column {
     background: #2F3136;
@@ -307,6 +268,7 @@ body {
     cursor: pointer;
 }
 
+/*Estilo listado de canales*/
 #channelList{
     margin-top: 3px;
     background:none;
@@ -375,6 +337,7 @@ p.format{
     opacity: 1;
 }
 
+/*Estilos pie de columna canales*/
 .foot_column {
     position: absolute;
     left: 0;

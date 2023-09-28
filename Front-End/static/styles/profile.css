@@ -63,8 +63,8 @@
         }
 
         .imagen-redonda {
-            width: 30%; /* Ajusta el tamaño deseado */
-            height: 30%; /* Ajusta el tamaño deseado */
+            width: 30%; 
+            height: 30%; 
             border-radius: 50%;
             object-fit: cover; /* Ajusta la forma de la imagen para que se ajuste al círculo */
             overflow: hidden; /* Oculta cualquier contenido que se salga del círculo */

@@ -3,40 +3,41 @@
     margin: 0;
 }
 
-
+/*Estilo cuerpo*/
 body {
     margin: 12;
     padding: 10;
-    background-color: #36393f; /* Fondo oscuro */
-    color: #fff; /* Texto en blanco */
+    background-color: #36393f; 
+    color: #fff; 
 }
 
+/*Oculta messages*/
 .messages{
     display: none;
 }
 
+/*Estilo para el contenedor del chat*/
 .chat_container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #2f3136; /* Fondo del contenedor de chat */
+    background-color: #2f3136; 
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(161, 10, 10, 0.1);
     display: flex;
     flex-direction: column;
     height: 460px; 
     width: 530px;
-    
-
 }
+
 
 .chat {
     flex-grow: 1;
-    overflow-y:scroll;  /*Agrega una barra de desplazamiento vertical */
-    padding-right: 10px; /* Evita que las barras de desplazamiento superpongan el contenido */
+    overflow-y:scroll;  /*Barra de desplazamiento vertical */
+    padding-right: 10px; /* Evita superposición de barras de desplazamiento*/
 }
 
-
+/*Estilo entrada de mensajes*/
 .message_input {
     display: flex;
     align-items: center;
@@ -48,22 +49,23 @@ body {
    
 }
 
-/*MARGEN IZQUIERDO DE EMOJI*/
+/*Margen izquierdo emoji*/
 .chat_icons {    
     margin-left: 20px; 
 }
 
 
-
+/*Estilo área de escritura*/
 textarea {
     flex-grow: 1;
     resize: none; /* Evita que el área de texto se redimensione */
     padding: 5px;
-    background-color: #40444b; /* Fondo del área de escritura de mensajes */
-    color: #fff; /* Texto en blanco */
+    background-color: #40444b; 
+    color: #fff; 
     border: none;
 }
 
+/*Estilo botón Enviar*/
 button {
     padding: 10px 10px;
     background-color: #0073e6;
@@ -73,6 +75,17 @@ button {
     margin-left: 10px;
     border-radius: 5px;
 }
+
+
+/*.send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }*/
 
 /* Estilos para los mensajes JS */
 .message {
@@ -109,7 +122,7 @@ button {
 }
 
 .message_text {
-    color: #fff; /* Texto del mensaje en blanco */
+    color: #fff; 
 }
 
 .message_time{
@@ -141,56 +154,39 @@ button {
 }
 
 
-/*.send-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-  }*/
-  
 
-
-  /* Estilo del scroll en modo oscuro */
+/* Estilo del scroll en modo oscuro */
 ::-webkit-scrollbar {
-    width: 10px; /* Ancho de la barra de desplazamiento */
-    background-color: #36393f; /* Color de fondo del scroll */
+    width: 10px; 
+    background-color: #36393f; 
 }
 
 /* Estilo del thumb (el control deslizante) en el scroll */
 ::-webkit-scrollbar-thumb {
-    background-color: #5b5e69; /* Color del thumb */
+    background-color: #5b5e69; 
     border-radius: 5px; /* Borde redondeado del thumb */
 }
 
-/* Estilo del thumb en estado hover (cuando se pasa el cursor sobre él) */
+/* Estilo del thumb en estado hover*/
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #40444b; /* Color del thumb en hover */
+    background-color: #40444b; 
 }
 
-
+/*Estilo barra superior de Columna mensajes*/
 .top {
     display: flex;
-    justify-content: flex-end; /* Alinea los elementos al final del contenedor (derecha en este caso) */
+    justify-content: flex-end; /* Alinea los elementos al final del contenedor (derecha) */
     align-items: center; 
-    
-
-
-
-    
-
 }
 
-
+/*Estilo cuando no hay servidores*/
 .no_servers {
     text-align: center; /* Centrar horizontalmente el texto */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px; /* Esto centra verticalmente el contenido en la ventana del navegador */
+    height: 500px; /* Centra verticalmente el contenido en la ventana del navegador */
 }
 
 .no_servers p {

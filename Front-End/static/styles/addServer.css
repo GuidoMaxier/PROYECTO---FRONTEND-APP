@@ -1,6 +1,3 @@
-
-
-
 /* Estilo para las ventanas modales */
 .modal {
     display:none; 
@@ -19,8 +16,6 @@
     height: 150px;
 }
 
-/*#7289da*/
-/*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);*/
 
 /* Estilo para el contenido de la ventana modal */
 .modal-content {
@@ -35,8 +30,6 @@
     margin-bottom: 5px ;
 
     position: relative;
-    
-  
 }
 
 /* Estilo para el botón de cierre de la ventana modal */
@@ -69,14 +62,14 @@ input[type="text"] {
     border: none;
 }
 
-/* Estilo para los elementos de la ventana modal */
+/* Estilo para h2 de modal */
 .modal h2 {
     margin-top: 0;
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-/* Estilo para los elementos de la ventana modal */
+/* Estilo para h2 de modal-content */
 .modal-content h2 {
     margin-top: 0;
 }
