@@ -7,7 +7,9 @@ window.addEventListener('load', function () {
         //displayProfileData(userData);
         const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
 
-        obtenerDatosUsuarioDesdeAPI(idUsuario)
+        obtenerDatosUsuarioDesdeAPI(idUsuario);
+        cargarServidores(idUsuario);
+
 
     } else {
         // Si no se encuentra userData en localStorage, redirigir al usuario a la página de inicio de sesión
@@ -61,18 +63,18 @@ function displayProfileData(Data) {
 
 
 
-  document.getElementById('openProfile').addEventListener('click', () => {
-    // URL de la página a la que deseas redirigir
-    const profileURL = '/Front-End/templates/profile.html';
+//   document.getElementById('openProfile').addEventListener('click', () => {
+//     // URL de la página a la que deseas redirigir
+//     const profileURL = '/Front-End/templates/profile.html';
 
-    // Opciones para la ventana emergente
-    const popupOptions = 'width=400,height=400,menubar=no,location=no,resizable=no,scrollbars=no,status=no';
+//     // Opciones para la ventana emergente
+//     const popupOptions = 'width=400,height=400,menubar=no,location=no,resizable=no,scrollbars=no,status=no';
 
-    // Abrir la ventana emergente
-    const popupWindow = window.open(profileURL, 'Profile', popupOptions);
+//     // Abrir la ventana emergente
+//     const popupWindow = window.open(profileURL, 'Profile', popupOptions);
 
-    // Enfocar la ventana emergente (opcional)
-    if (popupWindow) {
-        popupWindow.focus();
-    }
-});
+//     // Enfocar la ventana emergente (opcional)
+//     if (popupWindow) {
+//         popupWindow.focus();
+//     }
+// });

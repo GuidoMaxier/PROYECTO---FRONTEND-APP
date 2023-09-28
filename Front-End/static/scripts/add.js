@@ -9,6 +9,12 @@ const channelColumn = document.getElementById('channel_column');
 const messages = document.getElementById('messages');
 const noServers = document.getElementById('no_servers');
 
+const currentDate = new Date().toISOString().slice(0, 10); // AAAA-MM-DD
+
+
+const usuarioId = JSON.parse(localStorage.getItem('userData')).id_usuario;
+
+
 
 // Mostrar ventana modal para crear servidor
 document.getElementById('create-server').addEventListener('click', () => {
@@ -29,41 +35,47 @@ document.getElementById('createServer').addEventListener('click', () => {
     noShowServers();
     const newServerName = serverNameInput.value;
     if (newServerName) {
+
+
+        const serverData = {
+            nombre: newServerName,
+            descripcion: "generica",
+            fecha_creacion: '2020-12-12',//currentDate,
+            id_usuario: usuarioId,
+          };
+
+        crearServidor(serverData);
+    
+
         // Crear la estructura HTML deseada
-        const newServerItem = document.createElement('div');
-        newServerItem.classList.add('profile1');
+        // const newServerItem = document.createElement('div');
+        // newServerItem.classList.add('profile1');
 
-        const serverIcon = document.createElement('p');
-        serverIcon.textContent = newServerName[0];
+        // const serverIcon = document.createElement('p');
+        // serverIcon.textContent = newServerName[0];
 
-        const whiteLine = document.createElement('div');
-        whiteLine.classList.add('white_line');
+        // const whiteLine = document.createElement('div');
+        // whiteLine.classList.add('white_line');
 
-        const hoverText = document.createElement('div');
-        hoverText.classList.add('hover');
-        hoverText.textContent = newServerName;
+        // const hoverText = document.createElement('div');
+        // hoverText.classList.add('hover');
+        // hoverText.textContent = newServerName;
 
-        newServerItem.appendChild(serverIcon);
-        newServerItem.appendChild(whiteLine);
-        newServerItem.appendChild(hoverText);
+        // newServerItem.appendChild(serverIcon);
+        // newServerItem.appendChild(whiteLine);
+        // newServerItem.appendChild(hoverText);
 
-        // Agregar el nuevo servidor a la lista de servidores
-        serverList.appendChild(newServerItem);
+        // // Agregar el nuevo servidor a la lista de servidores
+        // serverList.appendChild(newServerItem);
 
         serverModal.style.display = 'none';
         serverNameInput.value = ''; // Limpiar el input
 
-        //AGREGANDO FUNCIONAAAA
-        // Agregar un evento click al nuevo elemento
-        //newServerItem.addEventListener('click', () => {
-            //showChannelColumn();
-        //});
-
-        // Agregar un evento click al nuevo servidor
-        newServerItem.addEventListener('click', () => {
+        // // Agregar un evento click al nuevo servidor
+        // newServerItem.addEventListener('click', () => {
  
-            toggleChannelColumnVisibility();
-        });
+        //     toggleChannelColumnVisibility();
+        // });
     }
 });
 
