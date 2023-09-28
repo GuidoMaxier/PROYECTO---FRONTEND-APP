@@ -52,7 +52,8 @@
         .then(response => {
             if (response.status === 201) {
                 // Registro exitoso (debemos redireccionar al login)
-                alert('Debemos redireccionar al login');
+                alert('Redireccionando al login');
+                window.location.href = "./index.html";
                 return response.json();
             } else if (response.status === 400) {
                 // Error de validación (nombre de usuario o email ya existen)

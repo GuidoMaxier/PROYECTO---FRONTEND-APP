@@ -17,9 +17,6 @@ document.getElementById('create-server').addEventListener('click', () => {
 });
 
 
-
-
-
 // Mostrar ventana modal para crear canal
 document.getElementById('create-channel').addEventListener('click', () => {
     channelNameInput.value = ''; // Limpiar el input
@@ -92,8 +89,6 @@ function toggleChannelColumnVisibility() {
 function noShowServers() {
     noServers.style.display = 'none';
 }
-
-
 
 
 // Define la función que se ejecutará al hacer clic en el elemento
@@ -171,7 +166,6 @@ document.getElementById('createChannel').addEventListener('click', () => {
 function showMessages() {
     // Mostrar la columna "channel_column"
     messages.style.display = 'block';
-
    
 }
 

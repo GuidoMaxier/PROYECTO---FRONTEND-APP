@@ -4,7 +4,7 @@
     login();
   });
 
-  function login() {
+function login() {
   const data = {
       username: document.getElementById('username').value,
       contraseña: document.getElementById('password').value
