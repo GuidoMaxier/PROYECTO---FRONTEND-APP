@@ -22,6 +22,7 @@ body {
 .channel_column{
     display: none;
     flex-direction: column;
+    width: 270px; /*AGREGADO*/
 }
 
 .server_column {
@@ -309,7 +310,7 @@ body {
 #channelList{
     margin-top: 3px;
     background:none;
-    padding: 7px;
+    padding: 0px 0px;
     border-radius: 3px;
     cursor: pointer;
 }
