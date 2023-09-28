@@ -32,6 +32,7 @@ function cargarServidores(idUsuario){
       .then((data) => {
         // La respuesta del servidor con la lista de servidores se encuentra en 'data'
         const servers = data;
+        noShowServers();
     
       // Recorrer la lista de servidores y crear elementos HTML para cada uno de ellos
       servers.forEach((server) => {
