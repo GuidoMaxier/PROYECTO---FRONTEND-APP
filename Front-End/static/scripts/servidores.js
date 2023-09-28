@@ -16,58 +16,63 @@
 // });
 
 ////////////// READ SERVIDORES //////////////////////////
-function cargarServidores(idUsuario){
-    // Limpiar la lista de servidores existentes
-    serverList.innerHTML = '';
+function cargarServidores(idUsuario) {
+  // Limpiar la lista de servidores existentes
+  serverList.innerHTML = '';
 
   fetch(`http://127.0.0.1:5000/servidor/user/${idUsuario}`, {
       method: 'GET',
-    })
-      .then((response) => {
-        if (!response.ok) {
+      credentials: 'include',
+  })
+  .then((response) => {
+      if (!response.ok) {
           throw new Error('Error al obtener la lista de servidores');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // La respuesta del servidor con la lista de servidores se encuentra en 'data'
-        const servers = data;
-        noShowServers();
-    
+      }
+      return response.json();
+  })
+  .then((data) => {
+      // La respuesta del servidor con la lista de servidores se encuentra en 'data'
+      const servers = data;
+      
+
       // Recorrer la lista de servidores y crear elementos HTML para cada uno de ellos
       servers.forEach((server) => {
-        const newServerItem = document.createElement('div');
-        newServerItem.classList.add('profile1');
+          noShowServers();
+          const newServerItem = document.createElement('div');
+          newServerItem.classList.add('profile1');
 
-        const serverIcon = document.createElement('p');
-        serverIcon.textContent = server.nombre[0];
+          // Almacenar el id_servidor como un atributo personalizado
+          newServerItem.dataset.serverId = server.id_servidor;
 
-        const whiteLine = document.createElement('div');
-        whiteLine.classList.add('white_line');
+          const serverIcon = document.createElement('p');
+          serverIcon.textContent = server.nombre[0];
 
-        const hoverText = document.createElement('div');
-        hoverText.classList.add('hover');
-        hoverText.textContent = server.nombre;
+          const whiteLine = document.createElement('div');
+          whiteLine.classList.add('white_line');
 
-        newServerItem.appendChild(serverIcon);
-        newServerItem.appendChild(whiteLine);
-        newServerItem.appendChild(hoverText);
+          const hoverText = document.createElement('div');
+          hoverText.classList.add('hover');
+          hoverText.textContent = server.nombre;
 
-        // Agregar el nuevo servidor a la lista de servidores en el frontend
-        serverList.appendChild(newServerItem);
+          newServerItem.appendChild(serverIcon);
+          newServerItem.appendChild(whiteLine);
+          newServerItem.appendChild(hoverText);
 
-        // Agregar un evento click al nuevo servidor
-        newServerItem.addEventListener('click', () => {
-          toggleChannelColumnVisibility();
-          // Aquí puedes realizar acciones específicas al hacer clic en un servidor
-          // Por ejemplo, cargar canales relacionados con el servidor seleccionado.
-        });
+          // Agregar el nuevo servidor a la lista de servidores en el frontend
+          serverList.appendChild(newServerItem);
+
+          // Agregar un evento click al nuevo servidor
+          newServerItem.addEventListener('click', (event) => {
+              const serverId = event.currentTarget.dataset.serverId;
+              cargarCanales(serverId);
+          });
       });
-    })
-    .catch((error) => {
+  })
+  .catch((error) => {
       console.error(error.message); // Maneja errores si ocurrieron
-    });
-  }
+  });
+}
+
 
 
 
@@ -85,6 +90,7 @@ function crearServidor(serverData) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(serverData),
+        credentials: 'include',
       })
         .then((response) => {
           if (!response.ok) {
