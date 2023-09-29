@@ -9,6 +9,13 @@ body {
     justify-content: center;
     align-items: center;
     padding-top: 60px;
+    min-height: 100vh;
+
+    background-image: url('../assets/avatars/2.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija mientras se desplaza la página */
+    
 }
 
 

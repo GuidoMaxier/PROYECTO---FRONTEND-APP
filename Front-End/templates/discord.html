@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../static/styles/chat.css">
         <link rel="stylesheet" href="../static/styles/addServer.css">
         <link rel="stylesheet" href="../static/styles/explorer.css">
-        <script src="../static/scripts/main.js"></script>
+        <link rel="stylesheet" href="../static/styles/profile.css">
 
       
     </head>
@@ -55,6 +55,16 @@
                     <button id="createServer">Crear</button>
                 </div>
             </div>
+
+
+
+            
+
+
+
+
+
+
 
             <!-- Ventana modal para crear canal -->
             <div id="channelModal" class="modal">
@@ -146,10 +156,24 @@
                             <img src="../assets/headphones.svg">
                             <div class="hover2">Ensordecer</div>
                         </div>
+
                         <div class="holder">
-                            <img src="../assets/settings-20.svg">
+                            <a class="button-profile" id="button-profile">
+                                <img src="../assets/settings-20.svg">
+                            </a>
+
+                            <!--<img src="../assets/settings-20.svg">-->
                             <div class="hover2">Ajustes de usuario</div>
                         </div>
+
+                        
+
+
+
+
+
+
+
                     </div>
                     
                 </div>
@@ -273,18 +297,100 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Ventana modal para Profile -->
+        <div id="profileModal" class="modal-p">
+            <div class="modal-content-p">
+                <span class="close" id="closeProfile">&times;</span>
+
+
+                <div class="container-p">
+                    <h1>Perfil de Usuario <button id="logout">Logout</button></h1>
+            
+                    <form id="profile-form" enctype="multipart/form-data">
+                        <!-- Cuadro de diálogo oculto -->
+                        <div id="modal-p" class="modal-p">
+                            <div class="modal-content-p">
+                                <span class="close" id="closeButton">&times;</span>
+                                <h3>Selecciona un avatar</h3>
+                                <div class="image-container">
+                                    <div class="image-row">
+                                        <img src="../static/assets/avatars/alien.png" alt="Alien" onclick="seleccionarAvatar('../static/assets/avatars/alien.png')" />
+                                        <img src="../static/assets/avatars/man.png" alt="Man" onclick="seleccionarAvatar('../static/assets/avatars/man.png')" />
+                                        <img src="../static/assets/avatars/monkey.png" alt="Monkey" onclick="seleccionarAvatar('../static/assets/avatars/monkey.png')" />
+                                        <img src="../static/assets/avatars/soldier.png" alt="Soldier" onclick="seleccionarAvatar('../static/assets/avatars/soldier.png')" />
+                                    </div>
+                                    <div class="image-row">
+                                        <img src="../static/assets/avatars/pilot.png" alt="Pilot" onclick="seleccionarAvatar('../static/assets/avatars/pilot.png')" />
+                                        <img src="../static/assets/avatars/robot.png" alt="Robot" onclick="seleccionarAvatar('../static/assets/avatars/robot.png')" />
+                                        <img src="../static/assets/avatars/yoda.png" alt="Yoda" onclick="seleccionarAvatar('../static/assets/avatars/yoda.png')" />
+                                        <img src="../static/assets/avatars/robot2.png" alt="Yoda" onclick="seleccionarAvatar('../static/assets/avatars/robot2.png')" />
+                                        <!-- Agrega las imágenes restantes aquí -->
+                                    </div>
+                                </div>
+                                <button type="button" id="guardarButton" class="boton-red">Seleccionar Avatar</button>
+                            </div>
+                        </div>
+            
+                        <img src="" alt="Imagen de Perfil" id="imagen_perfil_preview" class="imagen-redonda" name="ruta_imagen_perfil" >
+            
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" value="John">
+            
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" value="Doe">
+            
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" value="johndoe@example.com">
+            
+                        <label for="username">User Name:</label>
+                        <input type="text" name="username" value="johnd">
+                        
+                        <!-- Campos adicionales (contraseña, fecha de nacimiento, etc.) -->
+            
+                        <button type="button" id="Guardar-Cambios">Guardar Cambios</button>
+                        <button type="button" id="Cambiar-Clave">Cambiar Contraseña</button>
+                    </form>
+                </div>
+            
+                <div class="container-p">
+                    <button id="Eliminar-usuario">Eliminar Cuenta</button>
+                    
+                </div>
+            
+                <div id="modal-clave" class="modal-clave" style="display: none;">
+                    <div class="modal-content-clave">
+                        <span class="close-clave" id="closeClave">&times;</span>
+                        <h3>Cambiar Contraseña</h3>
+                        <form id="cambiar-clave-form">
+                            <label for="nuevaclave">Nueva Contraseña:</label>
+                            <input type="password" id="nuevaclave" name="nuevaclave" required>
+                
+                            <label for="confirmacion">Confirmar Contraseña:</label>
+                            <input type="password" id="confirmacion" name="confirmacion" required>
+                
+                            <button type="button" id="guardarClave">Guardar Contraseña</button>
+                        </form>
+                    </div>
+                </div>
+               
+
+
+
+            </div>
+        </div>
     
 
 
         <!--<script src="../static/scripts/chat.js"></script>-->
-        
         <script src="../static/scripts/chat2.js"></script>
         <script src="../static/scripts/add.js"></script>
         <script src="../static/scripts/explorer.js"></script>
         <script src="../static/scripts/chat-connect.js"></script>
         <script src="../static/scripts/servidores.js"></script>
-        <script src="../static/scripts/canales.js"></script>
-        <script src="../static/scripts/mensajes.js"></script>
+        <script src="../static/scripts/profile.js"></script>
+        <script src="../static/scripts/modal.js"></script>
 
 
     </body>
