@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://127.0.0.1:5000/api';
+    const apiUrl = `http://127.0.0.1:5000/mensaje/${canalId}`;
+
     const chatMessages = document.getElementById('chat');
     const sendButton = document.getElementById('send_button');
     const messageText = document.getElementById('message_text');
@@ -7,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function agregarMensaje(message) {
         const mensaje = document.createElement('div');
         //mensaje.classList.add('message');
-        mensaje.innerHTML = `<strong>${message.usuario}:</strong> ${message.mensaje}`;
+        mensaje.innerHTML = `<strong>${message.usuario_id}:</strong> ${message.contenido}`;
         chatMessages.appendChild(mensaje);
     }
 
     //obtenemos lo mensajes de la base de datos falsa
     function obtenerMensajes() {
-        fetch(`${apiUrl}/mensajes`)
+        fetch(`${apiUrl}/mensaje`)
             .then(response => response.json())
             .then(data => {
                 chatMessages.innerHTML = ''; // Borra los mensajes existentes antes de agregar nuevos
@@ -28,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     send_button.addEventListener('click', function() {
         const mensaje = messageText.value;
-        const usuario = 'Usuario';  // Puedes obtener el nombre del usuario de tu sistema de autenticación
+        const usuario = usuarioId;  // Puedes obtener el nombre del usuario de tu sistema de autenticación
         console.log('message_text', mensaje);
 
-        const data = { mensaje, usuario };
+        const data = { 
+            canal_id: canalId,
+            usuario_id: 14,
+            contenido: mensaje,
+            fecha:'2023-12-12' };
 
-        fetch(`${apiUrl}/enviar_mensaje`, {
+        fetch(`${apiUrl}/mensaje/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

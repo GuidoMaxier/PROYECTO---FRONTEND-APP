@@ -69,7 +69,13 @@ function cargarCanales(serverId) {
           // Agregar un evento click al nuevo elemento
           newContents.addEventListener('click', () => {
               canalId = newContents.dataset.channelId;
+              console.log("canal nro: " + canalId);
+              
               //cargarMensajes(canalId);
+              showMessages();
+              cargarMensajesEnChat();
+              // obtenerMensaje();
+
           });
       });
   })
