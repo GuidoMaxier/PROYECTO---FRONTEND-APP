@@ -5,6 +5,7 @@ const messageText = document.getElementById('message_text');
 const sendButton = document.getElementById('send_button');
 
 const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+const avatar = JSON.parse(localStorage.getItem('userData')).ruta;
 
 // Agregar un evento click al botón "Enviar"
 sendButton.addEventListener('click', () => {
@@ -27,18 +28,20 @@ function getDateTime() {
     const day = currentTime.getDate().toString().padStart(2, '0');
     const hours = currentTime.getHours().toString().padStart(2, '0');
     const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-    return `${day}/${month}/${year} ${hours}:${minutes}`;
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
 // Función para enviar un mensaje
 function sendMessage() {
     const message = messageText.value.trim();
     if (message !== '') {
-        const dateTime = getDateTime();
+        //const dateTime = getDateTime();
+        const currentDate = new Date().toISOString().slice(0, 10); // AAAA-MM-DD
 
 
-        
-        addMessage('../assets/monkey.png', 'Usuario Actual', message, dateTime);
+        enviarMensaje(canalId, idUsuario, message, currentDate);
+
+        //addMessage('../assets/monkey.png', 'Usuario Actual', message, dateTime);
         messageText.value = '';
         // Desplazarse al final del historial de mensajes
         chatContainer.scrollTop = chatContainer.scrollHeight;

@@ -97,6 +97,7 @@ function cargarCanales(serverId) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(canalData),
+          
         })
           .then((response) => {
             if (!response.ok) {
