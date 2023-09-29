@@ -76,23 +76,27 @@ function cargarMensajesEnChat() {
          obtenerDatosUsuario(mensaje.usuario_id)
             .then((datosUsuario) => {
                 //console.log(datosUsuario); // Aquí puedes acceder a los datos del usuario
-                const mensajeElement = document.createElement("div");
+
+                const avatarSrc = datosUsuario.ruta_imagen_perfil;
+                const userName = datosUsuario.username;
+                const messageTime = mensaje.fecha;
+                const messageText = mensaje.contenido;
+                const id_mensaje = mensaje.id_mensaje;
 
 
+                addMessage(avatarSrc, userName, messageText, messageTime, id_mensaje)
 
 
+                // const mensajeElement = document.createElement("div");
 
-
-
-                
-                mensajeElement.classList.add("mensaje");
-                mensajeElement.textContent = `${datosUsuario.username}: ${mensaje.contenido}`;
+                // mensajeElement.classList.add("mensaje");
+                // mensajeElement.textContent = `${datosUsuario.username}: ${mensaje.contenido}`;
         
-                chatElement.appendChild(mensajeElement);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+                // chatElement.appendChild(mensajeElement);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
 
         });
       })

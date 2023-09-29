@@ -41,7 +41,7 @@ function sendMessage() {
 }
 
 // Función para agregar un mensaje
-function addMessage(avatarSrc, userName, messageText, messageTime) {
+function addMessage(avatarSrc, userName, messageText, messageTime, id_mensaje) {
     // Crea un nuevo mensaje
     const message = document.createElement('div');
     message.classList.add('message');
@@ -50,6 +50,9 @@ function addMessage(avatarSrc, userName, messageText, messageTime) {
     userAvatar.classList.add('user_avatar');
     userAvatar.src = avatarSrc;
     userAvatar.alt = 'User Avatar';
+
+    //     // Almacenar el id_servidor como un atributo personalizado
+    message.dataset.messageid = id_mensaje;
 
     const messageContent = document.createElement('div');
     messageContent.classList.add('message_content');
@@ -101,6 +104,8 @@ function addMessage(avatarSrc, userName, messageText, messageTime) {
     deleteButton.addEventListener('click', () => {
         // Lógica para eliminar el mensaje aquí
         chatContainer.removeChild(message);
+        //llamamos a la fetch para que elimine el msj de la base de datos le tenemos 
+        // mandar el id del mensaje
     });
 
     const messageButtons = document.createElement('div');
