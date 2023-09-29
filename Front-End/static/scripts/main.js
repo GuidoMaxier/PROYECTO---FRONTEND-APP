@@ -1,1 +1,2 @@
 var serverId;
+var canalId;

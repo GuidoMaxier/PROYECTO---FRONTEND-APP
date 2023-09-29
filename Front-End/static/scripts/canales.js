@@ -68,8 +68,8 @@ function cargarCanales(serverId) {
 
           // Agregar un evento click al nuevo elemento
           newContents.addEventListener('click', () => {
-              const channelId = newContents.dataset.channelId;
-              //cargarMensajes(channelId);
+              canalId = newContents.dataset.channelId;
+              //cargarMensajes(canalId);
           });
       });
   })

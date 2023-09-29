@@ -1,9 +1,9 @@
-function cargarMensajes(channelId) {
+function cargarMensajes(canalId) {
     // Limpiar la lista de mensajes existentes
     // (debes tener un elemento HTML donde mostrar los mensajes, por ejemplo, un div con el id 'messageList')
     messageList.innerHTML = '';
 
-    fetch(`http://127.0.0.1:5000/mensaje/canal/${channelId}`, {
+    fetch(`http://127.0.0.1:5000/mensaje/canal/${canalId}`, {
         method: 'GET',
         credentials: 'include',
     })
