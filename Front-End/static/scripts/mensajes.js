@@ -50,6 +50,8 @@ function cargarMensajesEnChat() {
       .catch((error) => {
         console.error("Error al obtener mensajes:", error);
       });
+          // Actualiza el chat automáticamente cada 1 segundos
+    // setInterval(obtenerMensajes, 1000); // 1000 ms = 1 segundos
   }
   
   // Llamar a la función para cargar los mensajes en el chat

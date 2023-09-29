@@ -38,7 +38,6 @@ function sendMessage() {
         //const dateTime = getDateTime();
         const currentDate = new Date().toISOString().slice(0, 10); // AAAA-MM-DD
 
-
         enviarMensaje(canalId, idUsuario, message, currentDate);
 
         //addMessage('../assets/monkey.png', 'Usuario Actual', message, dateTime);
