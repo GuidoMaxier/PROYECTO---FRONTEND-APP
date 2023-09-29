@@ -1,14 +1,14 @@
 
-        body {
+        /*body {
             font-family: Arial, sans-serif;
             background-color: #36393f;
             color: #ffffff;
             margin: 0;
             padding: 0;
-            display: block;
-        }
+            display: ;
+        }*/
 
-        .container {
+        .container-p {
             max-width: 350px;
             margin: 0 auto;
             background-color: #42464d;
@@ -16,6 +16,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding-top: 1px;
+            /*display: block; */
         }
 
         h1 {
@@ -26,12 +27,14 @@
             padding: 0;
             text-align: center;
             margin-bottom: 20px;
+            font-size: 17px;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
             color: #ffffff;
+            font-size: 14px;
         }
 
         input[type="text"],
@@ -47,6 +50,7 @@
             border-radius: 3px;
             background-color: #36393f;
             color: #ffffff;
+            
         }
 
         input[type="submit"] {
@@ -72,9 +76,9 @@
             border: 3px solid rgb(236, 203, 13);
         }
 
-        /* Estilos para la ventana modal */
-        .modal {
-        display: none;
+        /* Estilos para la ventana modal GRIS*/
+        .modal-p  {
+        display: none; /*AGREGE*/
         position: fixed;
         top: 0;
         left: 0;
@@ -84,7 +88,7 @@
         z-index: 1;
         }
 
-        .modal-content {
+        .modal-content-p {
         background-color: #42464d;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
@@ -95,9 +99,11 @@
         padding: 20px;
         text-align: center;
         padding-top: 1px;
+
+        /*display: block;*//*AGREGADO*/
         }
 
-        .close {
+        .close-p {
         background-color: #c50b0b;
         padding: 2px;
         position: absolute;
@@ -139,13 +145,18 @@
         margin-bottom: 15px;
         }
 
-        .modal-content h3 {
+        .modal-content-p h3 {
         background-color: #7289da;
         color: #ffffff;
-        padding: 10px;
+        padding: 4px 0px;
         margin: 0;
         text-align: center;
         margin-bottom: 20px;
+        font-size: 15px;
+        width: 100%;
+
+        
+        
         }
 
         .boton-red {
@@ -180,6 +191,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #42464d;
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    
     
 }
 

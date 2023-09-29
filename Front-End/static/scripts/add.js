@@ -1,5 +1,7 @@
 // Obtener elementos de las ventanas modales
 const serverModal = document.getElementById('serverModal');
+const profileModal = document.getElementById('profileModal');
+
 const channelModal = document.getElementById('channelModal');
 const serverNameInput = document.getElementById('serverNameInput');
 const channelNameInput = document.getElementById('channelNameInput');
@@ -29,6 +31,20 @@ document.getElementById('create-channel').addEventListener('click', () => {
     channelModal.style.display = 'block';
 });
 
+
+// Mostrar ventana modal para Profile
+document.getElementById('button-profile').addEventListener('click', () => {
+    
+    profileModal.style.display = 'block';
+});
+
+//Se cierra la ventana Profile
+document.getElementById('closeProfile').addEventListener('click', () => {
+    profileModal.style.display = 'none';
+});
+
+
+
 /// Capturar nombre de servidor y agregarlo
 document.getElementById('createServer').addEventListener('click', () => {
 
@@ -40,7 +56,7 @@ document.getElementById('createServer').addEventListener('click', () => {
         const serverData = {
             nombre: newServerName,
             descripcion: "generica",
-            fecha_creacion: currentDate,   
+            fecha_creacion: '2020-12-12',//currentDate,
             id_usuario: usuarioId,
           };
 
@@ -88,8 +104,6 @@ function toggleChannelColumnVisibility() {
     if (channelColumnVisible) {
         // Si la columna está visible, la ocultamos
         channelColumn.style.display = 'none';
-        // cargarCanales(serverId);
-
     } else {
         // Si la columna está oculta, la mostramos
         channelColumn.style.display = 'block';
@@ -112,65 +126,55 @@ function miFuncion(nombreDelServidor) {
 }
 
 // Capturar nombre de canal y agregarlo
-document.getElementById('createChannel').addEventListener('click', (event) => {
+document.getElementById('createChannel').addEventListener('click', () => {
     const newChannelName = channelNameInput.value;
-
     if (newChannelName) {
         // Crear la estructura HTML deseada
-        const canalData = {
-            nombre: newChannelName,   
-            servidor_id: serverId,
-          };
-
-        crearCanal(canalData);
-        console.log(serverId)
-
-
-        // const newContents = document.createElement('div');
-        // newContents.classList.add('contents2');
-        // newContents.id = 'contents2'; // Asignar un id si es necesario
+        const newContents = document.createElement('div');
+        newContents.classList.add('contents2');
+        newContents.id = 'contents2'; // Asignar un id si es necesario
         
 
-        // const newChannelList = document.createElement('div');
-        // newChannelList.classList.add('channel-list');
-        // newChannelList.id = 'channelList'; // Asignar un id si es necesario
+        const newChannelList = document.createElement('div');
+        newChannelList.classList.add('channel-list');
+        newChannelList.id = 'channelList'; // Asignar un id si es necesario
 
-        // const channelItem = document.createElement('p');
-        // channelItem.classList.add('Channel');
-        // channelItem.textContent = `# ${newChannelName}`;
+        const channelItem = document.createElement('p');
+        channelItem.classList.add('Channel');
+        channelItem.textContent = `# ${newChannelName}`;
 
-        // newChannelList.appendChild(channelItem);
-        // newContents.appendChild(newChannelList);
+        newChannelList.appendChild(channelItem);
+        newContents.appendChild(newChannelList);
 
-        // // Agregar los elementos adicionales al contenido
-        // const holder1 = document.createElement('div');
-        // holder1.classList.add('holder');
-        // const img1 = document.createElement('img');
-        // img1.src = '../assets/user-plus-16.svg';
-        // const hover1 = document.createElement('div');
-        // hover1.classList.add('hover2');
-        // hover1.textContent = 'Crear invitación';
-        // holder1.appendChild(img1);
-        // holder1.appendChild(hover1);
+        // Agregar los elementos adicionales al contenido
+        const holder1 = document.createElement('div');
+        holder1.classList.add('holder');
+        const img1 = document.createElement('img');
+        img1.src = '../assets/user-plus-16.svg';
+        const hover1 = document.createElement('div');
+        hover1.classList.add('hover2');
+        hover1.textContent = 'Crear invitación';
+        holder1.appendChild(img1);
+        holder1.appendChild(hover1);
 
-        // const holder2 = document.createElement('div');
-        // holder2.classList.add('holder');
-        // const img2 = document.createElement('img');
-        // img2.src = '../assets/settings-16.svg';
-        // const hover2 = document.createElement('div');
-        // hover2.classList.add('hover2');
-        // hover2.textContent = 'Editar canal';
-        // holder2.appendChild(img2);
-        // holder2.appendChild(hover2);
+        const holder2 = document.createElement('div');
+        holder2.classList.add('holder');
+        const img2 = document.createElement('img');
+        img2.src = '../assets/settings-16.svg';
+        const hover2 = document.createElement('div');
+        hover2.classList.add('hover2');
+        hover2.textContent = 'Editar canal';
+        holder2.appendChild(img2);
+        holder2.appendChild(hover2);
 
-        // const optionsDiv = document.createElement('div');
-        // optionsDiv.appendChild(holder1);
-        // optionsDiv.appendChild(holder2);
+        const optionsDiv = document.createElement('div');
+        optionsDiv.appendChild(holder1);
+        optionsDiv.appendChild(holder2);
 
-        // newContents.appendChild(optionsDiv);
+        newContents.appendChild(optionsDiv);
 
-        // // Agregar el nuevo contenido a la lista de servidores
-        // channelList.appendChild(newContents);
+        // Agregar el nuevo contenido a la lista de servidores
+        channelList.appendChild(newContents);
 
         channelModal.style.display = 'none';
         channelNameInput.value = ''; // Limpiar el input
@@ -179,9 +183,9 @@ document.getElementById('createChannel').addEventListener('click', (event) => {
 
         //AGREGANDO FUNCIONAAAA
         // Agregar un evento click al nuevo elemento
-        // newContents.addEventListener('click', () => {
-        //     showMessages();
-        // });
+        newContents.addEventListener('click', () => {
+            showMessages();
+        });
     }
 });
 
@@ -204,6 +208,3 @@ document.getElementById('closeServerModal').addEventListener('click', () => {
 document.getElementById('closeChannelModal').addEventListener('click', () => {
     channelModal.style.display = 'none';
 });
-
-
-
