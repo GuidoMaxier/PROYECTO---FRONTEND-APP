@@ -4,6 +4,8 @@ const chatContainer = document.getElementById('chat');
 const messageText = document.getElementById('message_text');
 const sendButton = document.getElementById('send_button');
 
+const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+
 // Agregar un evento click al botón "Enviar"
 sendButton.addEventListener('click', () => {
     sendMessage();
@@ -33,6 +35,9 @@ function sendMessage() {
     const message = messageText.value.trim();
     if (message !== '') {
         const dateTime = getDateTime();
+
+
+        
         addMessage('../assets/monkey.png', 'Usuario Actual', message, dateTime);
         messageText.value = '';
         // Desplazarse al final del historial de mensajes
