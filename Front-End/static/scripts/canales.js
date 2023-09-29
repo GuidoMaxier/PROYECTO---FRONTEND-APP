@@ -69,7 +69,7 @@ function cargarCanales(serverId) {
           // Agregar un evento click al nuevo elemento
           newContents.addEventListener('click', () => {
               const channelId = newContents.dataset.channelId;
-              cargarMensajes(channelId);
+              //cargarMensajes(channelId);
           });
       });
   })
@@ -80,9 +80,6 @@ function cargarCanales(serverId) {
 
   ////////////////// CREATE CANALES //////////////////////
   function crearCanal(canalData) {
-
-
-
 
     console.log(canalData);
   
@@ -103,8 +100,9 @@ function cargarCanales(serverId) {
           })
           .then((data) => {
             // La respuesta del servidor se encuentra en 'data'
+            // const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
             console.log(data.message); // Muestra el mensaje de éxito en la consola
-            cargarServidores(canalData.id_usuario)
+            cargarCanales(serverId);
   
             // Aquí puedes realizar cualquier otra acción después de crear el servidor con éxito
           })

@@ -211,7 +211,8 @@ body {
 
 .channel_column {
     background: #2F3136;
-    position: relative
+    position: relative;
+    display: block;
 }
 
 .server_name {

@@ -33,11 +33,12 @@ function cargarServidores(idUsuario) {
   .then((data) => {
       // La respuesta del servidor con la lista de servidores se encuentra en 'data'
       const servers = data;
-      
+
+      if (Array.isArray(data) && data.length > 0) {
+        noShowServers();}
 
       // Recorrer la lista de servidores y crear elementos HTML para cada uno de ellos
       servers.forEach((server) => {
-          noShowServers();
           const newServerItem = document.createElement('div');
           newServerItem.classList.add('profile1');
 
@@ -63,8 +64,14 @@ function cargarServidores(idUsuario) {
 
           // Agregar un evento click al nuevo servidor
           newServerItem.addEventListener('click', (event) => {
-              const serverId = event.currentTarget.dataset.serverId;
+              serverId = event.currentTarget.dataset.serverId;
+  
+              //toggleChannelColumnVisibility();
               cargarCanales(serverId);
+              //const serverId = this.getAttribute('data-server-id');
+    
+              // Imprime el valor en la consola o haz lo que necesites con él
+              console.log('Valor de data-server-id:', serverId);
           });
       });
   })
