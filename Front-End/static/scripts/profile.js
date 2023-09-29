@@ -16,6 +16,10 @@ window.addEventListener('load', function () {
     }
 });
 
+
+const idUsuario = JSON.parse(localStorage.getItem('userData')).id_usuario;
+obtenerDatosUsuarioDesdeAPI(idUsuario)
+
 ///////////////////////// READ ////////////////////////////
 // Función para obtener los datos del usuario desde la API y actualizar el formulario
 function obtenerDatosUsuarioDesdeAPI(idUsuario) {
@@ -49,7 +53,13 @@ function displayProfileData(Data) {
     document.getElementsByName("username")[0].value = Data.username;
 
     // Asignar la ruta de la imagen de perfil al elemento de vista previa
+    document.getElementById("imagen_perfil").src = Data.ruta_imagen_perfil;
+
+
+        // Asignar la ruta de la imagen de perfil al elemento de vista previa
     document.getElementById("imagen_perfil_preview").src = Data.ruta_imagen_perfil;
+    document.getElementsByName("username")[0].textContent = Data.username;
+    document.getElementsByName("id_usuario")[0].textContent = "#" + Data.id_usuario;
 
     //document.getElementsByName("contraseña")[0].value = userData.contraseña;
     // document.getElementsByName("fecha_nacimiento")[0].value = userData.fecha_nacimiento;

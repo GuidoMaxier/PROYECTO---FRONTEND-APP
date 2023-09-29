@@ -1,5 +1,5 @@
 // Función para abrir la ventana modal
-document.getElementById('imagen_perfil_preview').addEventListener('click', function () {
+document.getElementById('imagen_perfil').addEventListener('click', function () {
     document.getElementById('modal-p').style.display = 'block';
   });
   
@@ -28,7 +28,7 @@ function seleccionarAvatar(avatarPath) {
   // Función para guardar la imagen seleccionada y cerrar la ventana modal
   document.getElementById('guardarButton').addEventListener('click', function () {
     if (selectedAvatar) {
-      document.getElementById('imagen_perfil_preview').src = selectedAvatar;
+      document.getElementById('imagen_perfil').src = selectedAvatar;
       document.getElementById('modal-p').style.display = 'none';
       // Aquí puedes hacer algo con la variable selectedAvatar, como enviarla al servidor.
     }
